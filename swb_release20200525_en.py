@@ -17,6 +17,7 @@ from os.path import isfile, join
 import shutil
 import datetime
 p = "" #Path
+totFile = 0 #TotalFileCalculation
 #Check args
 try:
     p = sys.argv[1]
@@ -47,7 +48,6 @@ filesJAR = []
 filesIcon = []
 filesImage= []
 files3DM = []
-totFile = 0
 #----------------------------------------
 
 #---[Check the formats]---
