@@ -429,5 +429,5 @@ except Exception as e:
 if totFile is 0:
     print("No file with recognized extension has been found")
 else:
-    print("Transfered files: " + str(totFile))
+    print("Total transfered files: " + str(totFile))
 
