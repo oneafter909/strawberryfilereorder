@@ -7,7 +7,7 @@ It's very simple to use, you have to write this command:
 
 <b>Extensions supported by Strawberry</b>
 
-<ol>
+<ul>
   <li>Photo: .jpeg .png .jfif .tiff .cr2 .gif .bmp .webp .heic .heif .svg .raw .eps</li>
     <li>Doc: .ods .ods .odp .docx .xlsx .ppts .rtf .odd .odb .txt .pdf</li>
     <li>Video: .mp4 .mov .m4v .avi </li>
@@ -20,6 +20,6 @@ It's very simple to use, you have to write this command:
   <li>Icon: .ico</li>
   <li>Images: .iso .dmg .bin .cue</li>
   <li>Blend: .blend. </li>
-</ol>
+</ul>
 
 It works on Linux based OSs and macOS.
