@@ -5,11 +5,13 @@ It's very simple to use, you have to write this command:
 
 <pre>python swb_release20200525.py [DIRECTORY TO REORDER]</pre>
 
-<b>Extensions supported by Strawberry</b>
+
 <b>How does it work?</b>
 <p>The program will read all the files inside a directory. Then the program takes the extensions and put the file with the extension inside a specific folder. The name of the folder is selected by the program.
 The program will create a copy of the file if already exists inside a folder and will rename it with the tag "[dx]".
 </p>
+
+<b>Extensions supported by Strawberry</b>
 
 <ul>
   <li>Photo: .jpeg .png .jfif .tiff .cr2 .gif .bmp .webp .heic .heif .svg .raw .eps</li>
