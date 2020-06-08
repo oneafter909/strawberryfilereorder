@@ -26,6 +26,7 @@ It's very simple to use, you have to write this command:
 <p>The program will read all the files inside a directory. Then the program takes the extensions and put the file with the extension inside a specific folder. The name of the folder is selected by the program.
 The program will create a copy of the file if already exists inside a folder and will rename it with the tag "[dx]".
 </p>
+
 <b>Supported OS</b>
 
 <ul>
