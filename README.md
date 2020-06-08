@@ -22,4 +22,8 @@ It's very simple to use, you have to write this command:
   <li>Blend: .blend. </li>
 </ul>
 
-It works on Linux based OSs and macOS.
+<b>Supported OS</b>
+<ul>
+  <li>GNU/Linux</li>
+  <li>macOS</li>
+</ul>  
