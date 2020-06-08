@@ -3,7 +3,7 @@
 Strawberry is a software which will reorder the files inside a directory by their extension
 It's very simple to use, you have to write this command:
 
-<pre>"python swb_release20200525.py [DIRECTORY TO REORDER]"</pre>
+<pre>python swb_release20200525.py [DIRECTORY TO REORDER]</pre>
 
 <b>Extensions supported by Strawberry</b>
 
