@@ -24,7 +24,7 @@ It's very simple to use, you have to write this command:
 
 <b>How does it work?</b>
 <p>The program will read all the files inside a directory. Then the program takes the extensions and put the file with the extension inside a specific folder. The name of the folder is selected by the program.
-The program will create a copy of the file if the file already exists inside a folder and will rename it with the tag "[dx]".
+The program will create a copy of the file if already exists inside a folder and will rename it with the tag "[dx]".
 </p>
 <b>Supported OS</b>
 
