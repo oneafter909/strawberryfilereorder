@@ -1,9 +1,13 @@
 # Jonio Strawberry File Reorder
 
-Strawberry is a software which will reorder the files inside a directory by their extension
-It's very simple to use, you have to write this command:
 
-<pre>python swb_release20200525.py [DIRECTORY TO REORDER]</pre>
+Strawberry is a software which will reorder the files inside a directory by their extension.
+
+On Debian/Linux based systems you can download the deb package from the release tab.
+
+Or if you want to use the terminal, you have to write this command:
+
+<pre>python3 swb.py [DIRECTORY TO REORDER]</pre>
 
 
 <b>How does it work?</b>
