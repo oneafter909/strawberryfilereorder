@@ -3,7 +3,7 @@
 #                                                               #
 #                                                               #
 #                                                               #
-#               JONIO STRAWBERRY FILE REORDER 1.1.1             #
+#               JONIO STRAWBERRY FILE REORDER 1.1.2             #
 #                    2020 JONIO SOFTWARE                        #
 #                            V.D.T.                             #
 #                                                               #
@@ -21,7 +21,7 @@ totFile = 0 #TotalFileCalculation
 sys.stdout.write("\x1b]2;Jonio Strawberry File Reorder\x07")
 os.system("clear")
 print("########################################################################")
-print("#           Jonio Strawberry File Reorder 1.1.1 (October 2020)         #")
+print("#           Jonio Strawberry File Reorder 1.1.2 (October 2020)         #")
 print("########################################################################")
 #Check args and some dir
 if sys.argv[1:]:                                                                            #Args!
