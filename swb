@@ -3,7 +3,7 @@
 #                                                               #
 #                                                               #
 #                                                               #
-#               JONIO STRAWBERRY FILE REORDER 1.1.0             #
+#               JONIO STRAWBERRY FILE REORDER 1.1.1             #
 #                    2020 JONIO SOFTWARE                        #
 #                            V.D.T.                             #
 #                                                               #
@@ -21,7 +21,7 @@ totFile = 0 #TotalFileCalculation
 sys.stdout.write("\x1b]2;Jonio Strawberry File Reorder\x07")
 os.system("clear")
 print("########################################################################")
-print("#           Jonio Strawberry File Reorder 1.1.0 (October 2020)         #")
+print("#           Jonio Strawberry File Reorder 1.1.1 (October 2020)         #")
 print("########################################################################")
 #Check args and some dir
 if sys.argv[1:]:                                                                            #Args!
@@ -104,8 +104,8 @@ for r, d, f in os.walk(p):
     break
 #----------------------------------------------------
 
-newDir = p + "/Documents Files/"
-DirB = p + "/Documents\ Files/"
+newDir = p + "/Document Files/"
+DirB = p + "/Document\ Files/"
 try:
     if filesDocs:
         print("DOCS FILES")
@@ -133,8 +133,8 @@ except Exception as e:
 
 #----------------------------------------------------
 
-newDir = p + "/Images file/"
-DirB = p + "/Images\ file/"
+newDir = p + "/Image files/"
+DirB = p + "/Image\ files/"
 try:
     if filesPhoto:
         print("IMAGES FILE")
@@ -191,8 +191,8 @@ except Exception as e:
 
 #----------------------------------------------------
 
-newDir = p + "/Font file/"
-DirB = p + "/Font\ file/"
+newDir = p + "/Font files/"
+DirB = p + "/Font\ files/"
 try:
     if filesFont:
         print("FONT FILES")
@@ -427,7 +427,7 @@ newDir = p + "/Disk Image files/"
 DirB = p + "/Disk\ Image\ files/"
 try:
     if filesImage:
-        print("FILE IMMAGINE DISCO")
+        print("DISK IMAGE FILES")
         if os.path.exists(newDir) is False:
             os.mkdir(newDir)
             print("Making the directory: " + newDir)
