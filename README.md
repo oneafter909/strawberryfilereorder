@@ -11,8 +11,8 @@ Or if you want to use the terminal, you have to write this command:
 
 
 <b>How does it work?</b>
-<p>The program will read all the files inside a directory. Then the program takes the extensions and put the file with the extension inside a specific folder. The name of the folder is selected by the program.
-The program will create a copy of the file if already exists inside a folder and will rename it with the tag "[dx]".
+<p>The program will read all the files inside a directory. Then it takes the extensions and put the file with the extension inside a dedicated folder. The name of the folder is selected by the program. It will create a copy of the file if it already exists inside a folder and will rename it with the tag "[dx]". 
+If the dedicated folder already exists, the program will provide to put the file inside the already created folder.
 </p>
 
 <b>Extensions supported by Strawberry</b>
