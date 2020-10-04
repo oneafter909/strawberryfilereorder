@@ -14,13 +14,13 @@ Or if you want to use the terminal, you have to write this command:
 <p>
 The program has 3 modes to reorder. 
 
-<b>1. Reorder by extension: </b>
+<b>1. Reorder by extension: </b></br>
 The program will read all the files inside a directory and reorder them by their extension putting inside a specific folder
 
-<b>2. Advanced reorder:</b>
+<b>2. Advanced reorder:</b></br>
 You have the power! You can choose the extension and the name of the folder.
 
-<b>3. Reorder by keyword:</b>
+<b>3. Reorder by keyword:</b></br>
 You have to enter a keyword and the name of the folder, if the folder already exists, the program will move the file inside the existing folder. If the files contains the keyword you entered, the program will move inside the folder you entered before all the files containing that keyword.</p>
 <b>Extensions supported by Strawberry</b>
 
