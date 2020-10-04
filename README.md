@@ -2,6 +2,7 @@
 
 
 Strawberry is a software which will reorder the files inside a directory by their extension. </br>
+
 <b>All Debian users</b></br>
 On Debian/Linux based systems you can download the deb package from the release tab.
 
