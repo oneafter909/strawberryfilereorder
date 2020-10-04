@@ -1,7 +1,6 @@
 # Jonio Strawberry File Reorder
 
-
-Strawberry is a software which will reorder the files inside a directory by their extension. </br>
+Strawberry File Reorder is an CL application which will reorder your files.</br>
 
 <b>All Debian users</b></br>
 On Debian/Linux based systems you can download the deb package from the release tab.
