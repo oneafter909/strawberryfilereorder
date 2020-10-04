@@ -11,10 +11,17 @@ Or if you want to use the terminal, you have to write this command:
 
 
 <b>How does it work?</b>
-<p>The program will read all the files inside a directory. Then it takes the extensions and put the file with the extension inside a dedicated folder. The name of the folder is selected by the program. It will create a copy of the file if it already exists inside a folder and will rename it with the tag "[dx]". 
-If the dedicated folder already exists, the program will provide to put the file inside the already created folder.
-</p>
+<p>
+The program has 3 modes to reorder. 
 
+<b>1. Reorder by extension: </b>
+The program will read all the files inside a directory and reorder them by their extension putting inside a specific folder
+
+<b>2. Advanced reorder:</b>
+You have the power! You can choose the extension and the name of the folder.
+
+<b>3. Reorder by keyword:</b>
+You have to enter a keyword and the name of the folder, if the folder already exists, the program will move the file inside the existing folder. If the files contains the keyword you entered, the program will move inside the folder you entered before all the files containing that keyword.</p>
 <b>Extensions supported by Strawberry</b>
 
 <ul>
