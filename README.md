@@ -5,7 +5,7 @@ Strawberry File Reorder is an CL application which will reorder your files.</br>
 <b>All Debian users</b></br>
 On Debian/Linux based systems you can download the deb package from the release tab.
 
-Or if you want to use the terminal, you have to write this command:
+Or if you want to use from the original code, you have to write this command:
 
 <pre>python3 swb.py [DIRECTORY TO REORDER]</pre>
 
