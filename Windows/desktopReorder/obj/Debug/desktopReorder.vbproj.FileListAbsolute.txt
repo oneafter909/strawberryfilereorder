@@ -1,0 +1,24 @@
+C:\Users\Vincenzo\source\repos\desktopReorder\desktopReorder\obj\Debug\desktopReorder.vbprojAssemblyReference.cache
+C:\Users\Vincenzo\source\repos\desktopReorder\desktopReorder\obj\Debug\desktopReorder.Form1.resources
+C:\Users\Vincenzo\source\repos\desktopReorder\desktopReorder\obj\Debug\desktopReorder.Resources.resources
+C:\Users\Vincenzo\source\repos\desktopReorder\desktopReorder\obj\Debug\desktopReorder.vbproj.GenerateResource.cache
+C:\Users\Vincenzo\source\repos\desktopReorder\desktopReorder\obj\Debug\desktopReorder.AboutBox.resources
+C:\Users\Vincenzo\source\repos\desktopReorder\desktopReorder\bin\Debug\Strawberry.exe.config
+C:\Users\Vincenzo\source\repos\desktopReorder\desktopReorder\bin\Debug\Strawberry.exe
+C:\Users\Vincenzo\source\repos\desktopReorder\desktopReorder\bin\Debug\Strawberry.pdb
+C:\Users\Vincenzo\source\repos\desktopReorder\desktopReorder\bin\Debug\Strawberry.xml
+C:\Users\Vincenzo\source\repos\desktopReorder\desktopReorder\obj\Debug\Strawberry.exe
+C:\Users\Vincenzo\source\repos\desktopReorder\desktopReorder\obj\Debug\Strawberry.xml
+C:\Users\Vincenzo\source\repos\desktopReorder\desktopReorder\obj\Debug\Strawberry.pdb
+C:\Users\Vincenzo\source\repos\desktopReorder EN\desktopReorder\bin\Debug\Strawberry.exe.config
+C:\Users\Vincenzo\source\repos\desktopReorder EN\desktopReorder\bin\Debug\Strawberry.exe
+C:\Users\Vincenzo\source\repos\desktopReorder EN\desktopReorder\bin\Debug\Strawberry.pdb
+C:\Users\Vincenzo\source\repos\desktopReorder EN\desktopReorder\bin\Debug\Strawberry.xml
+C:\Users\Vincenzo\source\repos\desktopReorder EN\desktopReorder\obj\Debug\desktopReorder.vbprojAssemblyReference.cache
+C:\Users\Vincenzo\source\repos\desktopReorder EN\desktopReorder\obj\Debug\desktopReorder.AboutBox.resources
+C:\Users\Vincenzo\source\repos\desktopReorder EN\desktopReorder\obj\Debug\desktopReorder.Form1.resources
+C:\Users\Vincenzo\source\repos\desktopReorder EN\desktopReorder\obj\Debug\desktopReorder.Resources.resources
+C:\Users\Vincenzo\source\repos\desktopReorder EN\desktopReorder\obj\Debug\desktopReorder.vbproj.GenerateResource.cache
+C:\Users\Vincenzo\source\repos\desktopReorder EN\desktopReorder\obj\Debug\Strawberry.exe
+C:\Users\Vincenzo\source\repos\desktopReorder EN\desktopReorder\obj\Debug\Strawberry.xml
+C:\Users\Vincenzo\source\repos\desktopReorder EN\desktopReorder\obj\Debug\Strawberry.pdb
