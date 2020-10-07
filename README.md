@@ -53,3 +53,5 @@ You have to enter two dates, the exstension and the directory to reorder. The pr
 <ul>
   <li>Windows</li>
 </ul> 
+
+*EXE FILES ARE VERY DANGEROUS! So compile the source from the Windows section if you want to use Strawberry File Reorder on Windows.
