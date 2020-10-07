@@ -40,8 +40,12 @@ You have to enter a keyword and the name of the folder, if the folder already ex
 </ul>
 
 <b>Supported OS</b>
-
+<b>Python Script</b>
 <ul>
   <li>GNU/Linux</li>
   <li>macOS</li>
 </ul>  
+<b>VB.net</b>
+<ul>
+  <li>Windows</li>
+</ul> 
