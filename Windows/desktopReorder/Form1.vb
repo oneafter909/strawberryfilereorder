@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 Public Class Form1
-    Dim tD() As Decimal = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ' I SALVATAGGI AVVENGONO IN MB
+    Dim tD() As Decimal = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0} 'The size will be expressed in MB
     Public Sub reorder(ByRef e As String, ByRef fR As String, ByRef fN As String)
         Dim tF = 0
         Dim errorCounter = 0
