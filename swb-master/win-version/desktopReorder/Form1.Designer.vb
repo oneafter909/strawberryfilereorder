@@ -773,7 +773,7 @@ Partial Class Form1
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(277, 17)
         Me.Label23.TabIndex = 27
-        Me.Label23.Text = "Use .* to transfer all files inside the new folder"
+        Me.Label23.Text = "Use .* to transfer all files inside the new folder."
         '
         'Form1
         '
