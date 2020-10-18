@@ -1,9 +1,9 @@
-#! /usr/bin/python3
+#! /usr/bin/env python
 #################################################################
 #                                                               #
 #                                                               #
 #                                                               #
-#               JONIO STRAWBERRY FILE REORDER 2.0               #
+#               JONIO STRAWBERRY FILE REORDER 2.1.0             #
 #                    2020 JONIO SOFTWARE                        #
 #                            V.D.T.                             #
 #                                                               #
@@ -16,14 +16,15 @@ from os import listdir
 from os.path import isfile, join
 import shutil
 import datetime
+import time
 p = "" #Path
-#------------------------[SOME COLORS]------------------------------------
+#------------------------[SOME COLORS]---------------------------------
 class textColors:
     HEADER = '\033[95m'
     BLUE = '\033[94m'
     OKGREEN = '\033[92m'
     FAIL = '\033[91m'
-    ENDC = '\033[0m'
+    RESET = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
     BOLD     = '\33[1m'
@@ -31,26 +32,17 @@ class textColors:
     SELECTED = '\33[7m'
     RED    = '\33[31m'
     GREEN  = '\33[32m'
+    YELLOW = '\33[93m'
 
-#------------------------[HOME SCREEN]------------------------------------
-sys.stdout.write("\x1b]2;Jonio Strawberry File Reorder\x07")
-os.system("clear")
-print("########################################################################")
-print("#           Jonio Strawberry File Reorder 2.0.0 (October 2020)         #")
-print("########################################################################")
-#-------------------------------------------------------------------------
-
+#-----------------------------------------------------------------------
 #------------------------------------------------[Elementary Reorder]--------------------------------------------------------
 def eR(p):     
-    print("Reorder by extension")                                                                                                          
+    print(textColors.BOLD+"Reorder by extension"+textColors.RESET)                                                                                                          
     totFile = 0
     if p == "":
         p = input("Enter a directory: ")
         print("SELECTED DIRECTORY: ")
         print("["+p+"]")
-
-    #LET'S GO
-
     #---[Arrays of extensions]---
     filesDocs = []
     filesAudio = []
@@ -64,8 +56,7 @@ def eR(p):
     filesIcon = []
     filesImage= []
     files3DM = []
-    #----------------------------------------
-
+    #----------------------------
     #---[Check the extensions]---
     for r, d, f in os.walk(p):    
         for file in f:
@@ -129,7 +120,7 @@ def eR(p):
     DirB = p + "/Image\ files/"
     try:
         if filesPhoto:
-            print("IMAGES FILE")
+            print("IMAGE FILES")
             if os.path.exists(newDir) is False:
                 os.mkdir(newDir)
                 print("Making the directory: " + newDir)
@@ -451,15 +442,20 @@ def eR(p):
 #-------------------------------------------------------------------------------------------------------------------------
 
 #---------------------------------------------[Advanced Reorder]------------------------------------------------------
-def aR():
+def aR(dy, e, n):
     totFile=0
-    print("Advanced Reorder")
-    dy=input("Enter a directory: ")
-    e=input("Enter an extension: ")
-    if e[0] != ".":
+    print(textColors.BOLD+"Advanced Reorder"+textColors.RESET)
+    if dy == "":
+        dy = input("Enter a directory: ")
+        print("SELECTED DIRECTORY: ")
+        print("["+dy+"]")   
+    if e=="":
+        e=input("Enter an extension: ")
+    if e[0] != ".": #Check
         print("E: you haven't inserted an extension!")
         begin()
-    n=input("Enter the name of the new folder where the files will go: ")
+    if n=="":
+        n=input("Enter the name of the new folder where the files will go: ")
     filesOwn = []
     for r, d, f in os.walk(dy):
         for file in f:
@@ -498,12 +494,17 @@ def aR():
 
 #---------------------------------------------------[Reorder by keyword]-----------------------------------------------
 
-def kwR():
-    print("Reorder by keyword")
+def kwR(dy, kw, n):
+    print(textColors.BOLD+"Reorder by keyword"+textColors.RESET)
     totFile=0
-    dy=input("Enter a directory: ")
-    kw=input("Enter a keyword: ")
-    n=input("Enter a name for the folder where the files will go: ")
+    if dy == "":
+        dy = input("Enter a directory: ")
+        print("SELECTED DIRECTORY: ")
+        print("["+dy+"]")   
+    if kw == "":
+        kw=input("Enter a keyword: ")
+    if n == "":
+      n=input("Enter a name for the folder where the files will go: ")
     filesOwn = []
     for r, d, f in os.walk(dy):
         for file in f:
@@ -541,43 +542,204 @@ def kwR():
 
 #----------------------------------------------------------------------------------------------------------------------
 
+#-------------------------------------------------[Reorder by Date]-------------------------------------------------------------------
+def bdR(dy, dR1, dR2, e):
+    if sys.platform == "linux":
+        print("GNU/Linux doesn't support the date reorder. :(")
+        begin()
+    print(textColors.BOLD+"Reorder by Date"+textColors.RESET)
+    totFile=0
+    iE=False
+    if e == ".*":
+        iE=False       
+    if dy == "":
+        dy = input("Enter a directory: ")
+        print("SELECTED DIRECTORY: ")
+        print("["+dy+"]")
+    if dR1 == "" and dR2 == "" and e == "":
+        dR1=input("Enter the first date (YYYY-mm-dd): ")
+        dR2=input("Enter the second date (YYYY-mm-dd): ")
+    if e == "":
+        dwE=input("Do you want to specify an extension?[y or n]: ")
+        if dwE == "y":
+            iE=True
+        elif dwE=="n":
+            iE=False
+        else:
+            print("Unknown answer")
+            bdR()
+        if iE==True:
+            e=input("Insert an exstension: ")
+        if e[0] != ".":
+            print("E: You haven't inserted an extension!")
+            bdR()
+    
+    #Let's Parse the two dates
+    d1=datetime.datetime.strptime(dR1, '%Y-%m-%d')
+    d2=datetime.datetime.strptime(dR2, '%Y-%m-%d')
+    newDir = dy + "/Files from " +d1.strftime("%d")+" "+ d1.strftime("%B") +" "+ d1.strftime("%Y") + " to "+d2.strftime("%d") +" " + d2.strftime("%B") + " " + d2.strftime("%Y")+"/"
+    filesOwn = []
+    for r, d, f in os.walk(dy): 
+        for file in f:
+            d=os.path.join(r,file) 
+            dC = datetime.datetime.fromtimestamp(os.stat(d).st_birthtime)                                                                 #Get the creation date from the file
+            if iE == False: 
+                if d1 <= dC and d2 >= dC:                                                                                                 #if creation time is included then...    
+                    filesOwn.append(os.path.join(r, file))
+            else:
+                if d1 <= dC and d2 >= dC and e in file:                                                                                   #if creation time is included and also the extension then...    
+                    filesOwn.append(os.path.join(r, file))
+        break 
+    try:
+        if iE == False:
+            if filesOwn:
+                print("The files from "+d1.strftime("%d")+" "+ d1.strftime("%B") + " to "+d2.strftime("%d")+" "+ d2.strftime("%B") +" will moved in " + newDir)
+                if os.path.exists(newDir) is False:
+                    os.mkdir(newDir)
+                    print("Creating the directory: " + newDir)
+                for f in filesOwn:
+                    source = f
+                    destination = newDir+os.path.basename(f)
+                    now = datetime.datetime.now()
+                    a = now.strftime("%Y%m%d%H%M%S")+"[dx]"
+                    destinationDX = newDir+a+os.path.basename(f)
+                    if os.path.exists(destination):
+                        print("Transfer: " + os.path.basename(source)+" (This is a duplicated, this file will have a [dx] sign to be easily recognized.") 
+                        shutil.move(source, destinationDX) #duplicated
+                    else:
+                        print("Transfer: " + os.path.basename(source)) 
+                        shutil.move(source, destination)
+                    totFile+=1    
+            print("Total transferred files: "+ str(totFile))
+        else:  #Extension
+            #Change folder name to a new folder name
+            newDir = dy + "/Files from " +d1.strftime("%d")+" "+ d1.strftime("%B") +" "+ d1.strftime("%Y") + " to "+d2.strftime("%d") +" " + d2.strftime("%B") + " " + d2.strftime("%Y")+" ("+e+")"+"/"
+            if filesOwn:
+                print("The files from "+d1.strftime("%d")+" "+ d1.strftime("%B") + " to "+d2.strftime("%d")+" "+ d2.strftime("%B") +" will moved in " + newDir)
+                if os.path.exists(newDir) is False:
+                    os.mkdir(newDir)
+                    print("Creating the directory: " + newDir)
+                for f in filesOwn:
+                    source = f
+                    destination = newDir+os.path.basename(f)
+                    now = datetime.datetime.now()
+                    a = now.strftime("%Y%m%d%H%M%S")+"[dx]"
+                    destinationDX = newDir+a+os.path.basename(f)
+                    if os.path.exists(destination):
+                        print("Transfer: " + os.path.basename(source)+" (This is a duplicated, this file will have a [dx] sign to be easily recognized.") 
+                        shutil.move(source, destinationDX) #duplicated
+                    else:
+                        print("Transfer: " + os.path.basename(source)) 
+                        shutil.move(source, destination)
+                    totFile+=1    
+            print("Total transferred files: "+ str(totFile))            
+    except Exception as eX:
+        print("Error: " + eX.message)
+        print(eX)
+    input("Press Enter to continue...")
+    exit()
+
+#-------------------------------------------------------------------------------------------------------------------------
+
 #----------------------SWITCH---------------------------------
 def switchApp(i):
     if i==1:
         eR("")
     elif i==2:
-        aR()
+        aR("", "","")
     elif i==3:
-        kwR()
+        kwR("","","")
+    elif i==4:
+        if sys.platform != "linux":
+            bdR("","","","")
+        else:
+            print("E: this command can't be execute on Linux systems.") #For now.
+            exit()
     else:
         print("Command not recongnized")
-#-------------------END SWITCH-----------------------------
+#-------------------END SWITCH--------------------------------------------
 
-# -------------------PROGRAM BEGIN-------------------------
+#------------------------[HOME SCREEN]------------------------------------
+def homeScreen():
+    sys.stdout.write("\x1b]2;Jonio Strawberry File Reorder\x07")
+    os.system("clear")
+    print("########################################################################")
+    print("#           Jonio Strawberry File Reorder 2.1 (October 2020)           #")
+    print("########################################################################")
+    print ("Running on: " + sys.platform)
+#-------------------------------------------------------------------------
+
+# -------------------PROGRAM BEGIN----------------------------------------
 def begin():
-    if sys.argv[1:]:                                                                            #Args!
+    homeScreen()
+    if sys.argv[1:]:                                                               
         try:
-            p = sys.argv[1]
-            eR(p)                                                                               #elementaryReorder with Args
+            #-------------------[HELP ARG]-----------------
+            if sys.argv[1] == "--help" or sys.argv[1] == "-h":
+                print("")
+                print(textColors.BOLD+"Welcome to Strawberry File Reorder help page!" + textColors.RESET)
+                print("")
+                print(textColors.YELLOW+"-h --help"+textColors.RESET+"                                                    Print this help text and exit.")
+                print("")
+                print(textColors.YELLOW+"-eR PATH"+textColors.RESET+"                                                     Extension (or Elementary) Reorder.")
+                print("                                                             Reorder the files inside a directory")
+                print("                                                             by their extension.")
+                print("")
+                print(textColors.YELLOW+"-aR PATH -e .EXTENSION -d FOLDER_NAME"+textColors.RESET+"                        Advanced Reorder.")
+                print("                                                             Reorder the files inside a directory. You have")
+                print("                                                             to specify the directory to reorder, the arrival")
+                print("                                                             folder and the extension.")
+                print("")
+                print(textColors.YELLOW+"-kwR PATH -kw KEYWORD -d FOLDER_NAME"+textColors.RESET+"                         KeyWord Reorder.")
+                print("                                                             Reorder the files inside a directory by a keyword")
+                print("                                                             which you have to specify.")
+                print("")
+                print(textColors.YELLOW+"-bdR PATH -i YYYY-mm-dd -f YYYY-mm-dd -e .EXTENSION"+textColors.RESET+"          By Date Reorder.")
+                print("                                                             Reorder the files inside a directory")
+                print("                                                             by their date time creation.")
+                print("                                                             You have to specify an initial date")
+                print("                                                             and a final date to make a date range. If the")
+                print("                                                             file creation date time respect the range, the file")
+                print("                                                             will moved inside the new folder")
+                print("                                                             The program will provide to create a new folder.")
+                print("                                                             (Not available on Linux systems. For now.)")
+                exit()
         except Exception as e:
             print("An error occurred.")
-            print (e)
-            input("Press Enter to continue...")
-            exit()
-        except KeyboardInterrupt as ki:
-            os.system("clear")
-            exit()
-    else:
-        print("Enter a reordering mode: ")                                                      #No Args
-        print("[1]Reorder by extension")
-        print("[2]Advanced reorder")
-        print("[3]Reorder by keyword")
-        try:
-            iP=input("Enter a mode: ")
-            switchApp(int(iP))
-        except KeyboardInterrupt as ki:
-            os.system("clear")
-            exit()
+
+            if sys.argv[1] == "-help":
+                print("Type --help to get helped")
+                exit()
+#-------------------------------[ARGS MANAGER]---------------------------------
+    if sys.argv[8:]:
+        if sys.argv[1] == "-bdR":
+            bdR(sys.argv[2], sys.argv[4], sys.argv[6], sys.argv[8])        
+    if sys.argv[6:]:
+        if sys.argv[1] == "-kwR":
+            kwR(sys.argv[2], sys.argv[4].replace("_"," "), sys.argv[6].replace("_"," "))
+    if sys.argv[5:]:
+        if sys.argv[1] == "-aR":
+            aR(sys.argv[2],sys.argv[4], sys.argv[5].replace("_"," "))
+    if sys.argv[2:]:
+        if sys.argv[1] == "-eR":
+            eR(sys.argv[2])
+#-------------------------------------------------------------------------------
+    print("Enter a reordering mode: ")                                                      #No Args
+    print("[1]Reorder by extension")
+    print("[2]Advanced reorder")
+    print("[3]Reorder by keyword")
+    if sys.platform != "linux":                                                             #Not available on GNU/Linux systems
+        print("[4]Reorder by date (Available only on macOS)")
+    try:
+        iP=input("Enter a mode: ")
+        switchApp(int(iP))
+    except KeyboardInterrupt as ki:
+        os.system("clear")
+        exit()
+
+
 #-----------------------------------------------------------
+
+
 
 begin()                                                                                          #Here the program starts
