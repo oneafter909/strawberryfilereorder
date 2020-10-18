@@ -23,7 +23,7 @@ You have the power! You can choose the extension and the name of the folder.
 <b>3. Reorder by keyword:</b></br>
 You have to enter a keyword and the name of the folder, if the folder already exists, the program will move the file inside the existing folder. If the files contains the keyword you entered, the program will move inside the folder you entered before all the files containing that keyword.</p>
 
-<b>4. Reorder by date (Only Windows and macOS (For now)):</b></br>
+<b>4. Reorder by date (Only Windows and macOS):</b></br>
 You have to enter two dates, the exstension and the directory to reorder. The program will sort only the files which are inside the range of the two dates, and takes those files and put them inside a new folder, created by the program. You can select if the program have to rename the folder with the precise day.</p>
 
 <b>Extensions supported by Strawberry</b>
