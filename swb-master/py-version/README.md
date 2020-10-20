@@ -1,3 +1,3 @@
-# HOW TO COMPILE
+# HOW TO EXECUTE IT
 
-1.	Type "python3 swb" to execute it
+1.	Type "python3 strawberry/" to execute it
