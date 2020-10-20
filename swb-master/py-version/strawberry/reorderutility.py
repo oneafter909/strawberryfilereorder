@@ -1,15 +1,3 @@
-#!/usr/bin/python3
-#################################################################
-#                                                               #
-#                                                               #
-#                                                               #
-#               JONIO STRAWBERRY FILE REORDER 2.1.0             #
-#                    2020 JONIO SOFTWARE                        #
-#                            V.D.T.                             #
-#                                                               #
-#                                                               #    
-#################################################################
-
 import os
 import sys
 from os import listdir
@@ -17,25 +5,8 @@ from os.path import isfile, join
 import shutil
 import datetime
 import time
-p = "" #Path
-#------------------------[SOME COLORS]---------------------------------
-class textColors:
-    HEADER = '\033[95m'
-    BLUE = '\033[94m'
-    OKGREEN = '\033[92m'
-    FAIL = '\033[91m'
-    RESET = '\033[0m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-    BOLD     = '\33[1m'
-    ITALIC   = '\33[3m'
-    SELECTED = '\33[7m'
-    RED    = '\33[31m'
-    GREEN  = '\33[32m'
-    YELLOW = '\33[93m'
+from GUI import textColors
 
-#-----------------------------------------------------------------------
-#------------------------------------------------[Elementary Reorder]--------------------------------------------------------
 def eR(p):     
     print(textColors.BOLD+"Reorder by extension"+textColors.RESET)                                                                                                          
     totFile = 0
@@ -638,108 +609,3 @@ def bdR(dy, dR1, dR2, e):
         print(eX)
     input("Press Enter to continue...")
     exit()
-
-#-------------------------------------------------------------------------------------------------------------------------
-
-#----------------------SWITCH---------------------------------
-def switchApp(i):
-    if i==1:
-        eR("")
-    elif i==2:
-        aR("", "","")
-    elif i==3:
-        kwR("","","")
-    elif i==4:
-        if sys.platform != "linux":
-            bdR("","","","")
-        else:
-            print("E: this command can't be execute on Linux systems.") #For now.
-            exit()
-    else:
-        print("Command not recongnized")
-#-------------------END SWITCH--------------------------------------------
-
-#------------------------[HOME SCREEN]------------------------------------
-def homeScreen():
-    sys.stdout.write("\x1b]2;Jonio Strawberry File Reorder\x07")
-    os.system("clear")
-    print("########################################################################")
-    print("#           Jonio Strawberry File Reorder 2.1 (October 2020)           #")
-    print("########################################################################")
-    print ("Running on: " + sys.platform)
-#-------------------------------------------------------------------------
-
-# -------------------PROGRAM BEGIN----------------------------------------
-def begin():
-    homeScreen()
-    if sys.argv[1:]:                                                               
-        try:
-            #-------------------[HELP ARG]-----------------
-            if sys.argv[1] == "--help" or sys.argv[1] == "-h":
-                print("")
-                print(textColors.BOLD+"Welcome to Strawberry File Reorder help page!" + textColors.RESET)
-                print("")
-                print(textColors.YELLOW+"-h --help"+textColors.RESET+"                                                    Print this help text and exit.")
-                print("")
-                print(textColors.YELLOW+"-eR PATH"+textColors.RESET+"                                                     Extension (or Elementary) Reorder.")
-                print("                                                             Reorder the files inside a directory")
-                print("                                                             by their extension.")
-                print("")
-                print(textColors.YELLOW+"-aR PATH -e .EXTENSION -d FOLDER_NAME"+textColors.RESET+"                        Advanced Reorder.")
-                print("                                                             Reorder the files inside a directory. You have")
-                print("                                                             to specify the directory to reorder, the arrival")
-                print("                                                             folder and the extension.")
-                print("")
-                print(textColors.YELLOW+"-kwR PATH -kw KEYWORD -d FOLDER_NAME"+textColors.RESET+"                         KeyWord Reorder.")
-                print("                                                             Reorder the files inside a directory by a keyword")
-                print("                                                             which you have to specify.")
-                print("")
-                print(textColors.YELLOW+"-bdR PATH -i YYYY-mm-dd -f YYYY-mm-dd -e .EXTENSION"+textColors.RESET+"          By Date Reorder.")
-                print("                                                             Reorder the files inside a directory")
-                print("                                                             by their date time creation.")
-                print("                                                             You have to specify an initial date")
-                print("                                                             and a final date to make a date range. If the")
-                print("                                                             file creation date time respect the range, the file")
-                print("                                                             will moved inside the new folder")
-                print("                                                             The program will provide to create a new folder.")
-                print("                                                             (Not available on Linux systems. For now.)")
-                exit()
-        except Exception as e:
-            print("An error occurred.")
-
-            if sys.argv[1] == "-help":
-                print("Type --help to get helped")
-                exit()
-#-------------------------------[ARGS MANAGER]---------------------------------
-    if sys.argv[8:]:
-        if sys.argv[1] == "-bdR":
-            bdR(sys.argv[2], sys.argv[4], sys.argv[6], sys.argv[8])        
-    if sys.argv[6:]:
-        if sys.argv[1] == "-kwR":
-            kwR(sys.argv[2], sys.argv[4].replace("_"," "), sys.argv[6].replace("_"," "))
-    if sys.argv[5:]:
-        if sys.argv[1] == "-aR":
-            aR(sys.argv[2],sys.argv[4], sys.argv[5].replace("_"," "))
-    if sys.argv[2:]:
-        if sys.argv[1] == "-eR":
-            eR(sys.argv[2])
-#-------------------------------------------------------------------------------
-    print("Enter a reordering mode: ")                                                      #No Args
-    print("[1]Reorder by extension")
-    print("[2]Advanced reorder")
-    print("[3]Reorder by keyword")
-    if sys.platform != "linux":                                                             #Not available on GNU/Linux systems
-        print("[4]Reorder by date (Available only on macOS)")
-    try:
-        iP=input("Enter a mode: ")
-        switchApp(int(iP))
-    except KeyboardInterrupt as ki:
-        os.system("clear")
-        exit()
-
-
-#-----------------------------------------------------------
-
-
-
-begin()                                                                                          #Here the program starts
