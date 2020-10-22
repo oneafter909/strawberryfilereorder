@@ -34,7 +34,7 @@ def helpPage():
     print("                                                             Reorder the files inside a directory")
     print("                                                             by their extension.")
     print("")
-    print(textColors.YELLOW+"-aR PATH -e .EXTENSION -d FOLDER_NAME"+textColors.RESET+"                        Advanced Reorder.")
+    print(textColors.YELLOW+"-aR PATH -e .EXTENSION FOLDER_NAME"+textColors.RESET+"                           Advanced Reorder.")
     print("                                                             Reorder the files inside a directory. You have")
     print("                                                             to specify the directory to reorder, the arrival")
     print("                                                             folder and the extension.")
