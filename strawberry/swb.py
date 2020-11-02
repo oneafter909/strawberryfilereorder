@@ -4,7 +4,7 @@ from os import listdir
 from os.path import isfile, join
 import shutil
 from GUI import textColors
-from reorderutility import eR, aR, kwR, bdR
+from reorderutility import eR, aR, kwR, bdR, LbdR
 from GUI import homeScreen, helpPage
 
 def switchApp(i):
@@ -18,8 +18,7 @@ def switchApp(i):
         if sys.platform != "linux":
             bdR("","","","")
         else:
-            print("E: this command can't be execute on Linux systems.") #For now.
-            exit()
+            LbdR("","","","")
     else:
         print("Command not recongnized")
 
@@ -39,13 +38,16 @@ def begin():
 
     if sys.argv[8:]:
         if sys.argv[1] == "-bdR":
-            bdR(sys.argv[2], sys.argv[4], sys.argv[6], sys.argv[8])        
+            if os.sys.platform == "linux":
+                LbdR(sys.argv[2], sys.argv[4], sys.argv[6], sys.argv[8])
+            else:
+                bdR(sys.argv[2], sys.argv[4], sys.argv[6], sys.argv[8])        
     if sys.argv[6:]:
         if sys.argv[1] == "-kwR":
             kwR(sys.argv[2], sys.argv[4].replace("_"," "), sys.argv[6].replace("_"," "))
-    if sys.argv[5:]:
+    if sys.argv[6:]:
         if sys.argv[1] == "-aR":
-            aR(sys.argv[2],sys.argv[4], sys.argv[5].replace("_"," "))
+            aR(sys.argv[2],sys.argv[4], sys.argv[6].replace("_"," "))
     if sys.argv[2:]:
         if sys.argv[1] == "-eR":
             eR(sys.argv[2])
@@ -53,9 +55,8 @@ def begin():
     print("Enter a reordering mode: ")                                                  
     print("[1]Reorder by extension")
     print("[2]Advanced reorder")
-    print("[3]Reorder by keyword")
-    if sys.platform != "linux":                                                            
-        print("[4]Reorder by date (Available only on macOS)")
+    print("[3]Reorder by keyword")                                                         
+    print("[4]Reorder by date")
     try:
         iP=input("Enter a mode: ")
         switchApp(int(iP))
