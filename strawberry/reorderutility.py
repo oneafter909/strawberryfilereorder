@@ -7,7 +7,6 @@ import datetime
 import time
 from GUI import textColors
 from creationdateutils import Date
-
 def eR(p):     
 
     print(textColors.BOLD+"Reorder by extension"+textColors.RESET)                                                                                                          
@@ -141,7 +140,7 @@ def eR(p):
                 totFile+=1 
 
     except Exception as e:
-        print("Error: " + e.message)
+        print("An error occurred.")
         print(e)
 
     #----------------------------------------------------
@@ -170,7 +169,7 @@ def eR(p):
                 totFile+=1 
 
     except Exception as e:
-        print("Error: " + e.message)
+        print("An error occurred.")
         print(e)
 
     #----------------------------------------------------
@@ -199,7 +198,7 @@ def eR(p):
                 totFile+=1 
 
     except Exception as e:
-        print("Error: " + e.message)
+        print("An error occurred.")
         print(e)
 
     #----------------------------------------------------
@@ -228,7 +227,7 @@ def eR(p):
                 totFile+=1 
 
     except Exception as e:
-        print("Error: " + e.message)
+        print("An error occurred.")
         print(e)
 
     #----------------------------------------------------
@@ -257,7 +256,7 @@ def eR(p):
                 totFile+=1 
 
     except Exception as e:
-        print("Error: " + e.message)
+        print("An error occurred.")
         print(e)
 
     #----------------------------------------------------
@@ -286,7 +285,7 @@ def eR(p):
                 totFile+=1 
 
     except Exception as e:
-        print("Error: " + e.message)
+        print("An error occurred.")
         print(e)
 
     #----------------------------------------------------
@@ -315,7 +314,7 @@ def eR(p):
                 totFile+=1 
 
     except Exception as e:
-        print("Error: " + e.message)
+        print("An error occurred.")
         print(e)
 
     #----------------------------------------------------
@@ -344,7 +343,7 @@ def eR(p):
                 totFile+=1 
 
     except Exception as e:
-        print("Error: " + e.message)
+        print("An error occurred.")
         print(e)
     #----------------------------------------------------
 
@@ -373,7 +372,7 @@ def eR(p):
     #----------------------------------------------------
 
     except Exception as e:
-        print("Error: " + e.message)
+        print("An error occurred.")
         print(e)
 
     #-----------------------------------------------------------
@@ -402,7 +401,7 @@ def eR(p):
                 totFile+=1 
 
     except Exception as e:
-        print("Error: " + e.message)
+        print("An error occurred.")
         print(e)
 
     if totFile is 0:
@@ -427,7 +426,7 @@ def aR(dy, e, n):
         e=input("Enter an extension: ")
     if e[0] != ".": #Check
         print("E: you haven't inserted an extension!")
-        begin()
+        aR("","","")
     if n=="":
         n=input("Enter the name of the new folder where the files will go: ")
     filesOwn = []
@@ -460,7 +459,7 @@ def aR(dy, e, n):
         print("Total transferred files: "+ str(totFile))
 
     except Exception as eX:
-        print("Error: " + eX.message)
+        print("An error occurred.")
         print(eX)
     input("Press Enter to continue...")
     exit()
@@ -509,7 +508,7 @@ def kwR(dy, kw, n):
         print("Total transferred files: "+ str(totFile))
 
     except Exception as eX:
-        print("Error: " + eX.message)
+        print("An error occurred.")
         print(eX)
     input("Press Enter to continue...")
     exit()
@@ -538,13 +537,13 @@ def LbdR(dy, dR1, dR2, e):
             iE=False
         else:
             print("Unknown answer")
-            bdR()
+            LbdR("","","","")
         if iE==True:
             e=input("Insert an exstension: ")
         if sys.argv[:0]:
             if e[0] != ".":
                 print("E: You haven't inserted an extension!")
-                bdR()
+                LbdR("","","","")
     
     #Let's Parse the two dates
     d1=datetime.datetime.strptime(dR1, '%Y-%m-%d')
@@ -606,7 +605,7 @@ def LbdR(dy, dR1, dR2, e):
                     totFile+=1    
             print("Total transferred files: "+ str(totFile))            
     except Exception as eX:
-        print("Error: " + eX.message)
+        print("An error occurred.")
         print(eX)
     input("Press Enter to continue...")
     exit()    
@@ -615,7 +614,7 @@ def LbdR(dy, dR1, dR2, e):
 def bdR(dy, dR1, dR2, e):
     if sys.platform == "linux":
         print("GNU/Linux doesn't support the date reorder. :(")
-        begin()
+        exit()
     print(textColors.BOLD+"Reorder by Date"+textColors.RESET)
     totFile=0
     iE=False
@@ -636,12 +635,12 @@ def bdR(dy, dR1, dR2, e):
             iE=False
         else:
             print("Unknown answer")
-            bdR()
+            bdR("","","","")
         if iE==True:
             e=input("Insert an exstension: ")
         if e[0] != ".":
             print("E: You haven't inserted an extension!")
-            bdR()
+            bdR("","","","")
     
     #Let's Parse the two dates
     d1=datetime.datetime.strptime(dR1, '%Y-%m-%d')
@@ -703,7 +702,7 @@ def bdR(dy, dR1, dR2, e):
                     totFile+=1    
             print("Total transferred files: "+ str(totFile))            
     except Exception as eX:
-        print("Error: " + eX.message)
+        print("An error occurred.")
         print(eX)
     input("Press Enter to continue...")
     exit()
