@@ -7,7 +7,7 @@ import datetime
 import time
 from GUI import textColors
 from creationdateutils import Date
-def eR(p):     
+def eR(p, recursive):     
 
     print(textColors.BOLD+"Reorder by extension"+textColors.RESET)                                                                                                          
     totFile = 0
@@ -49,7 +49,7 @@ def eR(p):
                 filesSource.append(os.path.join(r, file)) 
             if '.zip' in file or '.rar' in file or '.7z' in file or '.tar' in file or '.xz' in file or '.gz' in file or '.tgz' in file or '.tbz' in file or '.tbz2' in file or '.bz' in file:
                 filesCompressed.append(os.path.join(r, file))
-            if '.deb' in file or '.pkg' in file or '.snap' in file or '.rpm' in file or '.dnf' in file:
+            if '.deb' in file or '.pkg' in file or '.snap' in file or '.rpm' in file or '.dnf' in file or '.AppImage' in file:
                 filesPACK.append(os.path.join(r, file))  
             if '.ico' in file:
                 filesIcon.append(os.path.join(r, file))
@@ -58,8 +58,9 @@ def eR(p):
             if '.iso' in file or '.img' in file or '.bin' in file or '.cue' in file:
                 filesImage.append(os.path.join(r, file))
             if '.blend'in file:
-                files3DM.append(os.path.join(r, file))    
-        break
+                files3DM.append(os.path.join(r, file))
+        if recursive == False:    
+            break
     #----------------------------------------------------
 
     newDir = p + "/Document Files/"
@@ -404,7 +405,7 @@ def eR(p):
         print("An error occurred.")
         print(e)
 
-    if totFile is 0:
+    if totFile == 0:
         print("Any file with recognized extension has been found")
         input("Press Enter to continue...")
         exit()
