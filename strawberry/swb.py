@@ -35,7 +35,7 @@ def begin():
             if sys.argv[1] == "-help":
                 print("Type --help to get helped")
                 exit()
-
+    ###Add two to args
     if sys.argv[8:]:
         if sys.argv[1] == "-bdR":
             if os.sys.platform == "linux":
@@ -48,9 +48,11 @@ def begin():
     if sys.argv[6:]:
         if sys.argv[1] == "-aR":
             aR(sys.argv[2],sys.argv[4], sys.argv[6].replace("_"," "))
+    if sys.argv[3:]:                                                                                   
+        if sys.argv[1] == "-eR" and sys.argv[3] == "-R":
+            eR(sys.argv[2],True)
     if sys.argv[2:]:
-        if sys.argv[1] == "-eR":
-            eR(sys.argv[2])
+            eR(sys.argv[2], False)
     #When there's no args given.
     print("Enter a reordering mode: ")                                                  
     print("[1]Reorder by extension")
