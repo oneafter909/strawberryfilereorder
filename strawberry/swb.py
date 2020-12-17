@@ -4,7 +4,7 @@ from os import listdir
 from os.path import isfile, join
 import shutil
 from GUI import textColors
-from reorderutility import eR, aR, kwR, bdR, LbdR
+from reorderutility import eR, aR, kwR, bdR, LbdR, fR
 from GUI import homeScreen, helpPage
 
 def switchApp(i):
@@ -19,6 +19,8 @@ def switchApp(i):
             bdR("","","","")
         else:
             LbdR("","","","")
+    elif i==5:
+        fR("","","")
     else:
         print("Command not recongnized")
 
@@ -35,7 +37,7 @@ def begin():
             if sys.argv[1] == "-help":
                 print("Type --help to get helped")
                 exit()
-    ###Add two to args
+    ###Add two to args   #swb -fR sa --imageInput sa -d sa
     if sys.argv[8:]:
         if sys.argv[1] == "-bdR":
             if os.sys.platform == "linux":
@@ -48,6 +50,8 @@ def begin():
     if sys.argv[6:]:
         if sys.argv[1] == "-aR":
             aR(sys.argv[2],sys.argv[4], sys.argv[6].replace("_"," "))
+        elif sys.argv[1] == "-fR":
+            fR(sys.argv[2], sys.argv[4], sys.argv[6].replace("_"," "))
     if sys.argv[3:]:                                                                                   
         if sys.argv[1] == "-eR" and sys.argv[3] == "-R":
             eR(sys.argv[2],True)
@@ -59,6 +63,7 @@ def begin():
     print("[2]Advanced reorder")
     print("[3]Reorder by keyword")                                                         
     print("[4]Reorder by date")
+    print("[5]Reorder by face")
     try:
         iP=input("Enter a mode: ")
         switchApp(int(iP))

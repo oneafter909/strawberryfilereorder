@@ -7,6 +7,7 @@ import datetime
 import time
 from GUI import textColors
 from creationdateutils import Date
+import faceRecognizer as FR
 def eR(p, recursive):     
 
     print(textColors.BOLD+"Reorder by extension"+textColors.RESET)                                                                                                          
@@ -707,3 +708,28 @@ def bdR(dy, dR1, dR2, e):
         print(eX)
     input("Press Enter to continue...")
     exit()
+#---------------[Reorder by face]----------------
+def fR(p, faceModel, d):
+    if p != "" and faceModel != "" and d != "":
+        if os.path.exists(p) and os.path.isfile(faceModel):
+            FR.main(p, faceModel, d)
+        else:
+            print("An error occurred.")
+            fR("","","")
+    else:
+        p = input("Enter a directory: ")
+        faceModel = input("Enter the image face model directory: ")
+        d = input("Enter a name for the destination folder: ")
+        try:
+            if os.path.exists(p) and os.path.isfile(faceModel):
+                FR.main(p, faceModel, d)
+            else:
+                print("An error occurred.")
+                fR("","","")
+        except Exception as eX:
+            print("An error occurred.")
+            fR("","","")
+    input("Press any key to continue...")
+    exit()
+
+

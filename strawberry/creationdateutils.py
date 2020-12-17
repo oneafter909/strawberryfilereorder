@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import os
 import time
 import datetime
@@ -17,5 +18,5 @@ class Date:
         return y.day
     def getYear(path):
         x = time.ctime(os.path.getmtime(path))
-        y=datetime.datetime.strptime(x, '%a %b %d %H:%M:%S %Y')       
+        y=datetime.datetime.strptime(x, '%a %b %d %H:%M:%S %Y')
         return y.year
