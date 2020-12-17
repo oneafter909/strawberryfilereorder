@@ -12,7 +12,7 @@ Or if you want to use it from the original code, you have to write this command:
 
 <b>How does it work?</b>
 <p>
-The program has 4 modes to reorder. 
+The program has 5 modes to reorder. 
 
 <b>1. Reorder by extension: </b></br>
 The program will read all the files inside a directory and reorder them by their extension putting inside a specific folder
