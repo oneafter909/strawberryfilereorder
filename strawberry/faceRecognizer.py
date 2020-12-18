@@ -8,7 +8,6 @@ import time
 global filesOwnA
 global imageExt
 filesOwnA = []
-#Unico bug da terminare => terminare il programma in caso abbia finito con i file
 imageExt = {
 	"JPEG" : [".jpg",".JPG",".jpeg",".JPEG"],
 	"PNG" : [".png",".PNG"]
