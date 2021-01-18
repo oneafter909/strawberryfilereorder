@@ -8,7 +8,13 @@ On Debian/Linux based systems you can download the deb package from the release 
 Or if you want to use it from the original code, you have to write this command:
 
 <pre>python3 strawberry</pre>
-
+<b>Required PIP packages</b>
+- conda
+- pillow
+- numpy
+- pycoast
+- cmake
+- FaceRecognition
 
 <b>How does it work?</b>
 <p>
