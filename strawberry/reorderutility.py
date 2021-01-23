@@ -408,11 +408,9 @@ def eR(p, recursive):
 
     if totFile == 0:
         print("Any file with recognized extension has been found")
-        input("Press Enter to continue...")
         exit()
     else:
         print("Total transferred files: " + str(totFile))
-        input("Press Enter to continue...")
         exit()
 #-------------------------------------------------------------------------------------------------------------------------
 

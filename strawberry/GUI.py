@@ -19,9 +19,9 @@ class textColors:
 def homeScreen():
     sys.stdout.write("\x1b]2;Jonio Strawberry File Reorder\x07")
     os.system("clear")
-    print("########################################################################")
-    print("#          Jonio Strawberry File Reorder 3.0.0 (December 2020)         #")
-    print("########################################################################")
+    print("####################################################################################")
+    print("#                Jonio Strawberry File Reorder 4.0.0 (January 2021)                #")
+    print("####################################################################################")
     print ("Running on: " + sys.platform)
  
 def helpPage():
@@ -59,3 +59,7 @@ def helpPage():
     print("                                                             image containing a face. All the images equals to this")
     print("                                                             face will be moved inside the new folder.")
     print("                                                             You have to specify the folder name, not the directory")
+    print("")
+    print(textColors.YELLOW+"-fD PATH"+textColors.RESET+"                                                     Find duplicate files")
+    print("                                                             Find duplicate files recursively within a folder.")
+

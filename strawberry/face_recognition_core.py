@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import PIL.Image
-import dlib
+import PIL.Image #Pillow
+import dlib #dlib
 import numpy as np
 from PIL import ImageFile
 import os
