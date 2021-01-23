@@ -2,17 +2,23 @@
 
 Strawberry File Reorder is an CL application which will reorder your files.</br>
 
-<b>All Debian users</b></br>
+M
 On Debian/Linux based systems you can download the deb package from the release tab.
 
 Or if you want to use it from the original code, you have to write this command:
 
 <pre>python3 strawberry</pre>
-
+<b>Required PIP packages</b>
+- conda
+- pillow
+- numpy
+- pycoast
+- cmake
+- FaceRecognition
 
 <b>How does it work?</b>
 <p>
-The program has 5 modes to reorder. 
+The program has 5 modalities to reorder. 
 
 <b>1. Reorder by extension: </b></br>
 The program will read all the files inside a directory and reorder them by their extension putting inside a specific folder
