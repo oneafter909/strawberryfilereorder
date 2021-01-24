@@ -14,6 +14,7 @@ Or if you want to use it from the original code, you have to write this command:
 - numpy
 - pycoast
 - cmake
+- face_recognition_models
 - face_recognition
 
 <b>How does it work?</b>
