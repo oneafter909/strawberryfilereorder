@@ -9,6 +9,7 @@ Or if you want to use it from the original code, you have to write this command:
 
 <pre>python3 strawberry</pre>
 <b>Required PIP packages</b>
+- wheel
 - conda
 - pillow
 - numpy
