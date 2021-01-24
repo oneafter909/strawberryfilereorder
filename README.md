@@ -55,15 +55,3 @@ You have to enter a directory. This function will find all duplicate files insid
   <li>Blend: .blend. </li>
 </ul>
 
-<b>Supported OS</b> </br>
-<b>Python Script</b>
-<ul>
-  <li>GNU/Linux</li>
-  <li>macOS</li>
-</ul>  
-<b>VB.net</b>
-<ul>
-  <li>Windows</li>
-</ul> 
-
-*It's recommended to compile the source from the win-version section if you want to use Strawberry File Reorder on Windows.
