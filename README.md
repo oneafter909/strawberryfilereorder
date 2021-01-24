@@ -35,6 +35,9 @@ You have to enter two dates, the exstension and the directory to reorder. The pr
 <b>5. Reorder by Face Recognition:</b></br>
 You have to enter a directory, the destination and the image containing a human face. All the images which containing this face will be moved inside a new folder.
 
+<b>6. Search duplicate files:</b></br>
+You have to enter a directory. This function will find all duplicate files inside a directory recursively. The report file will be printed inside the selected directory.
+
 <b>Extensions supported by Strawberry</b>
 
 <ul>
