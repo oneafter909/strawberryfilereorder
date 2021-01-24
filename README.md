@@ -1,4 +1,4 @@
-# Jonio Strawberry File Reorder
+# Jonio Strawberry File Administrator
 
 Strawberry File Reorder is an CL application which will reorder your files.</br>
 
