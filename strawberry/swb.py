@@ -7,6 +7,8 @@ from GUI import textColors
 from reorderutility import eR, aR, kwR, bdR, LbdR, fR
 from identifier import fD
 from GUI import homeScreen, helpPage
+global version 
+version = "4.0.0"
 
 def switchApp(i):
     if i==1:
@@ -33,6 +35,9 @@ def begin():
         try:
             if sys.argv[1] == "--help" or sys.argv[1] == "-h":
                 helpPage()
+                exit()
+            if sys.argv[1] == "--version":
+                print(version)
                 exit()
         except Exception as e:
             print("An error occurred.")
@@ -63,6 +68,7 @@ def begin():
                 eR(sys.argv[2], False)
             elif sys.argv[1] == "-fD" or sys.argv[1] == " --findDuplicated":
                 fD(sys.argv[2])
+ 
     #When there's no args given.
     print("Enter a reordering mode: ")                                                  
     print("[1]Reorder by extension")

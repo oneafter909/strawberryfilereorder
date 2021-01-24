@@ -26,9 +26,11 @@ def homeScreen():
  
 def helpPage():
     print("")
-    print(textColors.BOLD+"Welcome to Strawberry File Reorder help page!" + textColors.RESET)
+    print(textColors.BOLD+"Welcome to Strawberry File Administrator help page!" + textColors.RESET)
     print("")
     print(textColors.YELLOW+"-h --help"+textColors.RESET+"                                                    Print this help text and exit.")
+    print("")
+    print(textColors.YELLOW+"--version"+textColors.RESET+"                                                    Print the actual version")
     print("")
     print(textColors.YELLOW+"-eR PATH"+textColors.RESET+"                                                     Extension (or Elementary) Reorder.")
     print("                                                             Reorder the files inside a directory")
