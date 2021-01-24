@@ -41,7 +41,7 @@ You have to enter a directory. This function will find all duplicate files insid
 <b>Extensions supported by the Elementary Reorder mode</b>
 
 <ul>
-  <li>Photo: .jpeg .png .jfif .tiff .cr2 .gif .bmp .webp .heic .heif .svg .raw .eps</li>
+  <li>Photo: .jpeg .png .jfif .tiff .cr2 .gif .bmp .webp .heic .heif .svg .raw .eps .dng</li>
     <li>Doc: .ods .ods .odp .docx .xlsx .ppts .rtf .odd .odb .txt .pdf</li>
     <li>Video: .mp4 .mov .m4v .avi </li>
     <li>Audio: .mp3 .m4a .ogg .m4b .wav .flac .m4r .mid .midi</li>
