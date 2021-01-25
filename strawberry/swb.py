@@ -5,6 +5,7 @@ from os.path import isfile, join
 import shutil
 from GUI import textColors
 from reorderutility import eR, aR, kwR, bdR, LbdR, fR
+from face_recognition_core import Available as frAvailable
 from identifier import fD
 from GUI import homeScreen, helpPage
 global version 
@@ -23,7 +24,13 @@ def switchApp(i):
         else:
             LbdR("","","","")
     elif i==5:
-        fR("","","")
+        if(frAvailable == True):
+            fR("","","")
+        else:
+            print("Face Recognition not available. Install the extensions. Consult https://github.com/oneafter909/strawberryfileadministrator for more information.")
+            print("Press any key to go back...")
+            input()
+            begin()
     elif i==6:
         fD("")
     else:
@@ -59,7 +66,11 @@ def begin():
         if sys.argv[1] == "-aR" or sys.argv[1] == "--advancedReorder":
             aR(sys.argv[2],sys.argv[4], sys.argv[6].replace("_"," "))
         elif sys.argv[1] == "-fR" or sys.argv[1] == "--faceReorder":
-            fR(sys.argv[2], sys.argv[4], sys.argv[6].replace("_"," "))
+            if(frAvailable == True):
+                fR(sys.argv[2], sys.argv[4], sys.argv[6].replace("_"," "))
+            else:
+                print("Face Recognition not available. Install the extensions. Consult https://github.com/oneafter909/strawberryfileadministrator for more information.")
+                exit()
     if sys.argv[3:]:                                                                                   
         if sys.argv[1] == "-eR" or sys.argv[1] == " --elementaryReorder" and sys.argv[3] == "-R":
             eR(sys.argv[2],True)

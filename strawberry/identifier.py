@@ -5,6 +5,9 @@ import datetime
 import time
 
 class DB:
+    """
+    Database Class
+    """
     def __init__(self, p, s):
         self.percorso = ""
         self.SHA = ""
@@ -13,6 +16,9 @@ class DB:
         self.SHA = s
 
 class DBUguali:
+    """
+    This Database serves to merge two Database Classes
+    """
     def __init__(self, p1, p2, s1, s2):
         self.percorso1 = p1
         self.SHA1 = s1
@@ -20,6 +26,10 @@ class DBUguali:
         self.SHA2 = s2
 
 def fD(p):
+    """
+    Find duplicate files function
+    :param p: Path
+    """
     l1 = []
     l2 = []
     filesOwn = []

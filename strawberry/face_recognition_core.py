@@ -1,20 +1,26 @@
 # -*- coding: utf-8 -*-
-
-import PIL.Image #Pillow
-import dlib #dlib
-import numpy as np
-from PIL import ImageFile
 import os
 import sys
-
+activate = True
 try:
-    import face_recognition_models
-except Exception:
-    print("face_recognition_models not found. I'll provide to install it...")
-    os.system("python3 -m pip install face_recognition_models")
-    print("Please install `face_recognition_models` with this command before using `face_recognition`:\n")
-    print("pip install git+https://github.com/ageitgey/face_recognition_models")
-    quit()
+
+    import PIL.Image #Pillow
+    import dlib #dlib
+    import numpy as np
+    from PIL import ImageFile
+    try:
+        import face_recognition_models
+    except Exception:
+        print("face_recognition_models not found. I'll provide to install it...")
+        os.system("python3 -m pip install face_recognition_models")
+        print("Please install `face_recognition_models` with this command before using `face_recognition`:\n")
+        print("pip install git+https://github.com/ageitgey/face_recognition_models")
+        quit()
+
+except Exception as Ex:
+    activate = False
+    print("Face Reorder will not work")
+    
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
@@ -32,6 +38,11 @@ cnn_face_detector = dlib.cnn_face_detection_model_v1(cnn_face_detection_model)
 face_recognition_model = face_recognition_models.face_recognition_model_location()
 face_encoder = dlib.face_recognition_model_v1(face_recognition_model)
 
+def Available():
+    if(activate == False):
+        return False
+    else:
+        return True
 
 def _rect_to_css(rect):
     """
