@@ -1,4 +1,4 @@
-# Jonio Strawberry File Reorder
+# Jonio Strawberry File Administrator
 
 Strawberry File Reorder is an CL application which will reorder your files.</br>
 
@@ -9,12 +9,14 @@ Or if you want to use it from the original code, you have to write this command:
 
 <pre>python3 strawberry</pre>
 <b>Required PIP packages</b>
+- wheel
 - conda
 - pillow
 - numpy
 - pycoast
 - cmake
-- FaceRecognition
+- face_recognition_models
+- face_recognition
 
 <b>How does it work?</b>
 <p>
@@ -35,10 +37,13 @@ You have to enter two dates, the exstension and the directory to reorder. The pr
 <b>5. Reorder by Face Recognition:</b></br>
 You have to enter a directory, the destination and the image containing a human face. All the images which containing this face will be moved inside a new folder.
 
-<b>Extensions supported by Strawberry</b>
+<b>6. Search duplicate files:</b></br>
+You have to enter a directory. This function will find all duplicate files inside a directory recursively. The report file will be printed inside the selected directory.
+
+<b>Extensions supported by the Elementary Reorder mode</b>
 
 <ul>
-  <li>Photo: .jpeg .png .jfif .tiff .cr2 .gif .bmp .webp .heic .heif .svg .raw .eps</li>
+  <li>Photo: .jpeg .png .jfif .tiff .cr2 .gif .bmp .webp .heic .heif .svg .raw .eps .dng</li>
     <li>Doc: .ods .ods .odp .docx .xlsx .ppts .rtf .odd .odb .txt .pdf</li>
     <li>Video: .mp4 .mov .m4v .avi </li>
     <li>Audio: .mp3 .m4a .ogg .m4b .wav .flac .m4r .mid .midi</li>
@@ -52,15 +57,3 @@ You have to enter a directory, the destination and the image containing a human 
   <li>Blend: .blend. </li>
 </ul>
 
-<b>Supported OS</b> </br>
-<b>Python Script</b>
-<ul>
-  <li>GNU/Linux</li>
-  <li>macOS</li>
-</ul>  
-<b>VB.net</b>
-<ul>
-  <li>Windows</li>
-</ul> 
-
-*It's recommended to compile the source from the win-version section if you want to use Strawberry File Reorder on Windows.
