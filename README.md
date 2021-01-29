@@ -1,6 +1,6 @@
 # Jonio Strawberry File Administrator
 
-Strawberry File Reorder is an CL application which will reorder your files.</br>
+Strawberry File Administrator is an CL application which will reorder your files.</br>
 
 M
 On Debian/Linux based systems you can download the deb package from the release tab.
