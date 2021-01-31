@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from setuptools import setup
 
@@ -8,7 +8,7 @@ Keep reordered your PC.
 
 setup(
     name='strawberry',
-    version='2.1',
+    version='4.0.0',
     description='Strawberry',
     long_description=long_description.strip(),
     author='Vincenzo Talarico',
@@ -17,23 +17,30 @@ setup(
     keywords='reorder',
     license='GPLv3',
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ],
     packages=['strawberry'],
     python_requires='>=3.5',
-    install_requires=[
-        "m3u8>=0.3.12,<0.4",
-        "requests>=2.13,<3.0",
-    ],
+    scripts=[
+        'strawberry/swb.py',
+        'strawberry/creationdateutils.py',
+        'strawberry/face_detection.py',
+        'strawberry/face_recognition.py',
+        'strawberry/face_recognition_core.py',
+        'strawberry/faceRecognizer.py',
+        'strawberry/GUI.py',
+        'strawberry/identifier.py',
+        'strawberry/__main__.py',
+        'strawberry/reorderutility.py',
+        ],
     entry_points={
         'console_scripts': [
-            'strawberry=strawberry.swb:main',
-        ],
-    }
+            'strawberry=swb:begin',
+            ],
+        }
 )
-
