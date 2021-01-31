@@ -3,7 +3,7 @@
 from setuptools import setup
 
 long_description = """
-Keep reordered your PC.
+Manage your files. Better.
 """
 
 setup(
