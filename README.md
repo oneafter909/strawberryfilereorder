@@ -6,7 +6,7 @@ Strawberry File Administrator is an CL application which will reorder your files
 
 First of all:
 <pre>apt install python3-dev</pre>
-Then with pip3:
+Then with pip3 install the following package:
 
 - face_recognition
 
