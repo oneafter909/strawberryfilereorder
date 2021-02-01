@@ -10,7 +10,10 @@ Then with pip3 install the following package:
 
 - face_recognition
 
-then:
+Run the setup.py with the following command:
+<pre>sudo ./setup.py install</pre>
+
+then run with:
 <pre>strawberry</pre>
 
 
