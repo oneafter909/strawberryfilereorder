@@ -8,11 +8,11 @@ On Debian/Linux based systems you can download the deb package from the release 
 Or if you want to use it from the original code, you have to write this command:
 
 <pre>python3 strawberry</pre>
-<b>Required PIP packages for "By Face Reorder" mode</b>
+<b>Required PIP packages for "By Face Reorder" mode:</b>
 
 First of all:
 <pre>apt install python3-dev</pre>
-Then with pip:
+Then with pip3:
 - wheel
 - conda
 - pillow
