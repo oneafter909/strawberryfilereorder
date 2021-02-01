@@ -2,12 +2,6 @@
 
 Strawberry File Administrator is an CL application which will reorder your files.</br>
 
-M
-On Debian/Linux based systems you can download the deb package from the release tab.
-
-Or if you want to use it from the original code, you have to write this command:
-
-<pre>python3 strawberry</pre>
 <b>Required PIP packages for "By Face Reorder" mode:</b>
 
 First of all:
@@ -21,6 +15,10 @@ Then with pip3:
 - cmake
 - face_recognition_models
 - face_recognition
+
+then:
+<pre>strawberry</pre>
+
 
 <b>How does it work?</b>
 <p>
