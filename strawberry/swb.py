@@ -66,7 +66,7 @@ def begin():
         if sys.argv[1] == "-aR" or sys.argv[1] == "--advancedReorder":
             aR(sys.argv[2],sys.argv[4], sys.argv[6].replace("_"," "))
         elif sys.argv[1] == "-fR" or sys.argv[1] == "--faceReorder":
-            if(frAvailable == True):
+            if(frAvailable() == True):
                 fR(sys.argv[2], sys.argv[4], sys.argv[6].replace("_"," "))
             else:
                 print("Face Recognition not available. Install the extensions. Consult https://github.com/oneafter909/strawberryfileadministrator for more information.")
