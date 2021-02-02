@@ -10,6 +10,7 @@ try:
     from PIL import ImageFile
     try:
         import face_recognition_models
+        activate = True
     except Exception:
         print("face_recognition_models not found. I'll provide to install it...")
         os.system("python3 -m pip install face_recognition_models")

@@ -9,7 +9,7 @@ from face_recognition_core import Available as frAvailable
 from identifier import fD
 from GUI import homeScreen, helpPage
 global version 
-version = "4.0.0"
+version = "4.0.2"
 
 def switchApp(i):
     if i==1:
@@ -24,7 +24,7 @@ def switchApp(i):
         else:
             LbdR("","","","")
     elif i==5:
-        if(frAvailable == True):
+        if(frAvailable() == True):
             fR("","","")
         else:
             print("Face Recognition not available. Install the extensions. Consult https://github.com/oneafter909/strawberryfileadministrator for more information.")

@@ -31,7 +31,7 @@ def process_images_in_process_pool(images_to_check, number_of_cpus, model):
         processes = None
     else:
         processes = number_of_cpus
-'
+
     context = multiprocessing
     if "forkserver" in multiprocessing.get_all_start_methods():
         context = multiprocessing.get_context("forkserver")
