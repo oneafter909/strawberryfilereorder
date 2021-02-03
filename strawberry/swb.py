@@ -9,7 +9,7 @@ from face_recognition_core import Available as frAvailable
 from identifier import fD
 from GUI import homeScreen, helpPage
 global version 
-version = "4.0.2"
+version = "4.0.3"
 
 def switchApp(i):
     if i==1:
