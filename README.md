@@ -4,7 +4,7 @@ Strawberry File Administrator is an CL application which will reorder your files
 
 <b>Required PIP packages for "By Face Reorder" mode:</b>
 
-First of all, for Debian users:
+First of all, for all Debian users:
 <pre>sudo apt install python3-dev</pre>
 <pre>sudo apt install cmake</pre>
 Then with pip3 install the following package:
