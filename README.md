@@ -13,7 +13,7 @@ Then with pip3 install the following package:
 
 Run setup.py with the following command (Source code):
 <pre>sudo ./setup.py install</pre>
-or
+or (Ubuntu)
 <pre>sudo add-apt-repository ppa:jonio/strawberry && sudo apt update</pre>
 then
 <pre>sudo apt install strawberry</pre>
