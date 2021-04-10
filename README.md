@@ -11,7 +11,7 @@ Then with pip3 install the following package:
 
 <pre>pip3 install face_recognition</pre>
 
-Run the setup.py with the following command (Source code):
+Run setup.py with the following command (Source code):
 <pre>sudo ./setup.py install</pre>
 or
 <pre>sudo add-apt-repository ppa:jonio/strawberry && sudo apt update</pre>
