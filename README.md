@@ -5,16 +5,19 @@ Strawberry File Administrator is an CL application which will reorder your files
 <b>Required PIP packages for "By Face Reorder" mode:</b>
 
 First of all, for Debian users:
-<pre>apt install python3-dev</pre>
-<pre>apt install cmake</pre>
+<pre>sudo apt install python3-dev</pre>
+<pre>sudo apt install cmake</pre>
 Then with pip3 install the following package:
 
 - face_recognition
 
-Run the setup.py with the following command:
+Run the setup.py with the following command (Source code):
 <pre>sudo ./setup.py install</pre>
-
-then run with:
+or
+<pre>sudo add-apt-repository ppa:jonio/strawberry && sudo apt update</pre>
+then
+<pre>sudo apt install strawberry</pre>
+run with:
 <pre>strawberry</pre>
 
 
