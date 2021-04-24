@@ -20,7 +20,7 @@ def homeScreen():
     sys.stdout.write("\x1b]2;Jonio Strawberry File Reorder\x07")
     os.system("clear")
     print("####################################################################################")
-    print("#            Jonio Strawberry File Administrator 4.0.2 (January 2021)              #")
+    print("#            Jonio Strawberry File Administrator 4.0.3 (February 2021)             #")
     print("####################################################################################")
     print ("Running on: " + sys.platform)
  
