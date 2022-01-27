@@ -28,7 +28,7 @@ You have to enter a keyword and the name of the folder, if the folder already ex
 
 <b>4. Reorder by date:</b></br>
 
-<img src="https://raw.githubusercontent.com/oneafter909/strawberryfileadministrator/master/media/keyword.png">
+<img src="https://raw.githubusercontent.com/oneafter909/strawberryfileadministrator/master/media/byDate.png">
 You have to enter two dates, the exstension and the directory to reorder. The program will sort only the files which are inside the range of the two dates, and takes those files and put them inside a new folder, created by the program. You can select if the program have to rename the folder with the precise day.
 
 <b>5. Search duplicate files</b></br>
