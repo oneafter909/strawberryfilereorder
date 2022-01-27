@@ -8,7 +8,7 @@ Manage your files. Better.
 
 setup(
     name='strawberry',
-    version='4.0.0',
+    version='5.0.0',
     description='Strawberry',
     long_description=long_description.strip(),
     author='Vincenzo Talarico',
@@ -29,10 +29,6 @@ setup(
     scripts=[
         'strawberry/swb.py',
         'strawberry/creationdateutils.py',
-        'strawberry/face_detection.py',
-        'strawberry/face_recognition.py',
-        'strawberry/face_recognition_core.py',
-        'strawberry/faceRecognizer.py',
         'strawberry/GUI.py',
         'strawberry/identifier.py',
         'strawberry/__main__.py',
