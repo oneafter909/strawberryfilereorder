@@ -13,7 +13,7 @@ version = infoStrawberry.version
 
 def switchApp(i):
     if i==1:
-        eR("")
+        eR("", False)
     elif i==2:
         aR("", "","")
     elif i==3:
