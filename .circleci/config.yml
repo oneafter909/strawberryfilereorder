@@ -8,7 +8,7 @@ jobs:
     executor: python/default
     steps:
       - checkout
-      - python/strawberry/__main__.py
+      - python/strawberry
       
 workflows:
   main:
