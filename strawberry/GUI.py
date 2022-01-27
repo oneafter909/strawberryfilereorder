@@ -1,6 +1,12 @@
 import os
 import sys
 import shutil
+
+class infoStrawberry:
+    version = "5.0"
+    month_release = "January"
+    year_release = "2022"
+
 class textColors:
     HEADER = '\033[95m'
     BLUE = '\033[94m'
@@ -17,11 +23,9 @@ class textColors:
     YELLOW = '\33[93m'
 
 def homeScreen():
-    sys.stdout.write("\x1b]2;Jonio Strawberry File Reorder\x07")
     os.system("clear")
-    print("####################################################################################")
-    print("#            Jonio Strawberry File Administrator 4.0.3 (February 2021)             #")
-    print("####################################################################################")
+    info = f"Jonio Strawberry File Administrator {infoStrawberry.version} ({infoStrawberry.month_release} {infoStrawberry.year_release})"
+    print(f"{info}")
     print ("Running on: " + sys.platform)
  
 def helpPage():
@@ -55,12 +59,6 @@ def helpPage():
     print("                                                             The program will provide to create a new folder.")
     print("                                                             (Not available on Linux systems. For now.)")
     print("")
-    print(textColors.YELLOW+"-fR PATH -i IMAGE_MODEL -d FOLDER_NAME"+textColors.RESET+"                       Face Recognition Reorder")
-    print("                                                             Reorder the files inside a directory")
-    print("                                                             by face recognition. You have to enter an")
-    print("                                                             image containing a face. All the images equals to this")
-    print("                                                             face will be moved inside the new folder.")
-    print("                                                             You have to specify the folder name, not the directory")
     print("")
     print(textColors.YELLOW+"-fD PATH"+textColors.RESET+"                                                     Find duplicate files")
     print("                                                             Find duplicate files recursively within a folder.")

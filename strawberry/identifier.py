@@ -7,22 +7,24 @@ import time
 class DB:
     """
     Database Class
+
     """
     def __init__(self, p, s):
-        self.percorso = ""
+        self.path = ""
         self.SHA = ""
         if p != "":
-            self.percorso = p
+            self.path = p
         self.SHA = s
 
 class DBUguali:
     """
     This Database serves to merge two Database Classes
+
     """
     def __init__(self, p1, p2, s1, s2):
-        self.percorso1 = p1
+        self.path1 = p1
         self.SHA1 = s1
-        self.percorso2 = p2
+        self.path2 = p2
         self.SHA2 = s2
 
 def fD(p):
@@ -61,17 +63,17 @@ def fD(p):
 
     for item in filesOwn:
         for item2 in filesOwn2:
-            if (item.SHA == item2.SHA and item.percorso != item2.percorso):
-                filesUguali.append( DBUguali(item.percorso, item2.percorso, item.SHA, item2.SHA) )
+            if (item.SHA == item2.SHA and item.path != item2.path):
+                filesUguali.append( DBUguali(item.path, item2.path, item.SHA, item2.SHA) )
 
     if(filesUguali):
         for obj in filesUguali:
-            print(obj.percorso1, obj.SHA1, obj.percorso2, obj.SHA2, sep = '\n')
+            print(obj.path1, obj.SHA1, obj.path2, obj.SHA2, sep = '\n')
             print("")
             now = datetime.datetime.now()
             a = now.strftime("%Y%m%d%H%M%S")
             f = open(p+"/DuplicateReport"+a+".txt", "a")
-            f.write(obj.percorso1 +'\n'+ obj.percorso2 + '\n' + '\n')
+            f.write(obj.path1 +'\n'+ obj.path2 + '\n' + '\n')
             f.close()
             print("Report file saved in " + p + "DuplicateReport"+a+".txt")
         exit()
