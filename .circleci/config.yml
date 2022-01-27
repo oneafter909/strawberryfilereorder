@@ -1,7 +1,7 @@
 version 2.1
 
 orbs:
-  python: circle/ci/python@0.3.8
+  python: circleci/python@0.3.8
 
 jobs:
   build-strawberry:
