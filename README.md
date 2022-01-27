@@ -36,7 +36,7 @@ You have to enter two dates, the exstension and the directory to reorder. The pr
 <img src="https://raw.githubusercontent.com/oneafter909/strawberryfileadministrator/master/media/findDuplicate.png">
 You have to enter a directory. This function will find all duplicate files inside a directory recursively. The report file will be printed inside the selected directory.
 <h3>How to install it</h3>
-<b>From release</b>
+<b>From release</b><br>
 Give the X permission to swb file then execute it with ./swb
 <b>From source</b>
 Run setup.py with the following command (Source code):
