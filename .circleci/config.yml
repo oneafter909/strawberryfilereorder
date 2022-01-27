@@ -10,7 +10,6 @@ jobs:
       PYTHONPATH=./strawberry
     steps:
       - checkout
-      - python/strawberry
       
 workflows:
   main:
