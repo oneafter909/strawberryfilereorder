@@ -1,0 +1,16 @@
+version 2.1
+
+orbs:
+  python: circle/ci/python@0.3.8
+
+jobs:
+  build-test:
+    executor: python/default
+    steps:
+      - checkout
+      - python/test
+      
+workflows:
+  main:
+    jobs:
+      - build-test
