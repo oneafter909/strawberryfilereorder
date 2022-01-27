@@ -4,13 +4,13 @@ orbs:
   python: circle/ci/python@0.3.8
 
 jobs:
-  build-test:
+  build-strawberry:
     executor: python/default
     steps:
       - checkout
-      - python/test
+      - python/strawberry
       
 workflows:
   main:
     jobs:
-      - build-test
+      - build-strawberry
