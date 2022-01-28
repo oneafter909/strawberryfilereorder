@@ -38,7 +38,7 @@ You have to enter a directory. This function will find all duplicate files insid
 <h3>How to install it</h3>
 <b>From release</b><br>
 Give the X permission to swb file then execute it with ./swb </br>
-<b>From source</b>
+<b>From source</b></br>
 Run setup.py with the following command (Source code):
 <pre>sudo ./setup.py install</pre>
 or run 
