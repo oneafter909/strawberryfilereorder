@@ -39,11 +39,11 @@ You have to enter a directory. This function will find all duplicate files insid
 <b>From release</b><br>
 Give the X permission to swb file then execute it with ./swb </br>
 <b>From source</b></br>
-Run setup.py with the following command (Source code):
+Run setup.py with the following command:
 <pre>sudo ./setup.py install</pre>
 or run 
 <pre>make</pre> 
-to create the python executable file. <b>You must need to install zipapp</b>
+to create the python executable file. <b>You must have to install zipapp</b>
 <pre>pip3 install zipapp</pre>
 <b>From Ubuntu</b>
 <pre>sudo add-apt-repository ppa:jonio/strawberry && sudo apt update</pre>
