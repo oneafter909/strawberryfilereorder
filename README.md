@@ -37,10 +37,14 @@ You have to enter two dates, the exstension and the directory to reorder. The pr
 You have to enter a directory. This function will find all duplicate files inside a directory recursively. The report file will be printed inside the selected directory.
 <h3>How to install it</h3>
 <b>From release</b><br>
-Give the X permission to swb file then execute it with ./swb
+Give the X permission to swb file then execute it with ./swb </br>
 <b>From source</b>
 Run setup.py with the following command (Source code):
 <pre>sudo ./setup.py install</pre>
+or run 
+<pre>make</pre> 
+to create the python executable file. <b>You must need to install zipapp</b>
+<pre>pip3 install zipapp</pre>
 <b>From Ubuntu</b>
 <pre>sudo add-apt-repository ppa:jonio/strawberry && sudo apt update</pre>
 then
