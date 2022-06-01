@@ -10,7 +10,7 @@
 <b>Sorting options</b>
 <ul>
   <li>By extensions</li>
-  <li>Advanced (with your preferenes) </li>
+  <li>Advanced (with your preferences) </li>
   <li>By keyword</li>
   <li>By date</li>
 </ul>
