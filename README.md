@@ -1,5 +1,12 @@
 <h1 align="center">Strawberry File Administrator</h1>
 
+<b>Supported OS</b>
+<ul>
+  <li>Windows</li>
+  <li>macOS</li>
+  <li>Linux based OS</li>
+</ul>
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/oneafter909/strawberryfileadministrator/master/media/home.png">
 </p>
