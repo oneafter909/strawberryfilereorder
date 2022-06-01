@@ -7,6 +7,18 @@
   <li>Linux based OS</li>
 </ul>
 
+<b>Sorting options</b>
+<ul>
+  <li>By extensions</li>
+  <li>Advanced (with your preferenes) </li>
+  <li>By keyword</li>
+  <li>By date</li>
+</ul>
+<b>Further tools</b>
+<ul>
+  <li>Search duplicate files</li>
+</ul>
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/oneafter909/strawberryfileadministrator/master/media/home.png">
 </p>
