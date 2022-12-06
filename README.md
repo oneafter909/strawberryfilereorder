@@ -1,4 +1,4 @@
-<h1 align="center">Strawberry File Administrator</h1>
+<h1 align="center">Strawberry File Reorder</h1>
 
 <b>Supported OS</b>
 <ul>
