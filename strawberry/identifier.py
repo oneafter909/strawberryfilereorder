@@ -75,7 +75,7 @@ def fD(p):
             f = open(p+"/DuplicateReport_"+a+".txt", "a")
             f.write(obj.path1 +'\n'+ obj.path2 + '\n' + '\n')
             f.close()
-            print("Report file saved in " + p + "DuplicateReport"+a+".txt")
+            print("Report file saved in " + p + "/DuplicateReport"+a+".txt")
         exit()
     else:
         print("No duplicated.")
