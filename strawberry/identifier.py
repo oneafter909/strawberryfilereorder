@@ -72,7 +72,7 @@ def fD(p):
             print("")
             now = datetime.datetime.now()
             a = now.strftime("%Y%m%d%H%M%S")
-            f = open(p+"/DuplicateReport/"+a+".txt", "a")
+            f = open(p+"/DuplicateReport_"+a+".txt", "a")
             f.write(obj.path1 +'\n'+ obj.path2 + '\n' + '\n')
             f.close()
             print("Report file saved in " + p + "DuplicateReport"+a+".txt")
