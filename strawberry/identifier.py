@@ -33,7 +33,6 @@ def fD(p):
     :param p: Path
     """
     l1 = []
-    l2 = []
     filesOwn = []
     filesOwn2 = []
     filesUguali = []
@@ -46,7 +45,6 @@ def fD(p):
     for r, d, f in os.walk(p):
         for file in f:
             l1.append(os.path.join(r, file))
-            l2.append(os.path.join(r, file))
             #break <= Not R command
 
     for file in l1:
@@ -57,14 +55,16 @@ def fD(p):
                     readHash = hashlib.sha256(bytes).hexdigest()
                 filesOwn.append( DB(os.path.join(r, file), readHash) )
                 filesOwn2.append( DB(os.path.join(r, file), readHash) )
-                filesOwn2.reverse()
+                
             except Exception as ex:
                 print(ex)
+                
+    filesOwn2.reverse()
 
     for item in filesOwn:
         for item2 in filesOwn2:
             if (item.SHA == item2.SHA and item.path != item2.path):
-                filesUguali.append( DBUguali(item.path, item2.path, item.SHA, item2.SHA) )
+                filesUguali.append(DBUguali(item.path, item2.path, item.SHA, item2.SHA))
 
     if(filesUguali):
         for obj in filesUguali:
@@ -72,7 +72,7 @@ def fD(p):
             print("")
             now = datetime.datetime.now()
             a = now.strftime("%Y%m%d%H%M%S")
-            f = open(p+"/DuplicateReport"+a+".txt", "a")
+            f = open(p+"/DuplicateReport/"+a+".txt", "a")
             f.write(obj.path1 +'\n'+ obj.path2 + '\n' + '\n')
             f.close()
             print("Report file saved in " + p + "DuplicateReport"+a+".txt")
