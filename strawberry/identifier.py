@@ -41,11 +41,6 @@ def heap_sort_hashes(files):
   # restituisci la lista ordinata
   return copy
 
-def SearchDuplicate(dir: str):
-   
-    # chiedi all'utente di inserire il percorso della cartella
-    if dir !="":
-        percorso = dir
     else:
         percorso = input("Inserisci un percorso: ")
     start_time = time.time()
