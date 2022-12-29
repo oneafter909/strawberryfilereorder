@@ -1,95 +1,87 @@
-import hashlib
 import os
-import sys
-import datetime
+import hashlib
 import time
+from datetime import datetime
 
-class DB:
-    """
-    Database Class
+def heapify(array, index, heap_size):
+  # calcola l'indice del figlio sinistro
+  left_child = 2 * index + 1
+  # calcola l'indice del figlio destro
+  right_child = 2 * index + 2
+  # inizializza l'indice del figlio massimo come quello del nodo corrente
+  largest = index
 
-    """
-    def __init__(self, p, s):
-        self.path = ""
-        self.SHA = ""
-        if p != "":
-            self.path = p
-        self.SHA = s
+  # se il figlio sinistro esiste e il suo valore è maggiore di quello del nodo corrente, imposta l'indice del figlio massimo come quello del figlio sinistro
+  if left_child < heap_size and array[left_child] > array[largest]:
+    largest = left_child
+  # se il figlio destro esiste e il suo valore è maggiore di quello del nodo corrente, imposta l'indice del figlio massimo come quello del figlio destro
+  if right_child < heap_size and array[right_child] > array[largest]:
+    largest = right_child
 
-class DBUguali:
-    """
-    This Database serves to merge two Database Classes
+  # se l'indice del figlio massimo è diverso da quello del nodo corrente, scambia i valori e chiama ricorsivamente heapify() per il figlio massimo
+  if largest != index:
+    array[largest], array[index] = array[index], array[largest]
+    heapify(array, largest, heap_size)
 
-    """
-    def __init__(self, p1, p2, s1, s2):
-        self.path1 = p1
-        self.SHA1 = s1
-        self.path2 = p2
-        self.SHA2 = s2
 
-def fD(p):
-    """
-    Find duplicate files function
-    :param p: Path
-    """
-    l1 = []
-    filesOwn = []
-    filesOwn2 = []
-    filesUguali = []
+# funzione per ordinare i file per hash usando l'algoritmo di ordinamento a cuscino
+def heap_sort_hashes(files):
+  # crea una copia della lista di file
+  copy = files[:]
 
-    if p == "":
-        p = input("Enter a directory: ")
-    print("Selected DIRECTORY: ")
-    print("["+p+"]")
-    print("Analyzing...")
-    for r, d, f in os.walk(p):
-        for file in f:
-            l1.append(os.path.join(r, file))
-            #break <= Not R command
+  # costruisci il cuscino
+  for i in range(len(copy) // 2, -1, -1):
+    heapify(copy, i, len(copy))
 
-    for file in l1:
-        if l1:
-            try:
-                with open(file, "rb") as fi:
-                    bytes = fi.read()
-                    readHash = hashlib.sha256(bytes).hexdigest()
-                filesOwn.append( DB(os.path.join(r, file), readHash) )
-                filesOwn2.append( DB(os.path.join(r, file), readHash) )
-                
-            except Exception as ex:
-                print(ex)
-                
-    filesOwn2.reverse()
+  # estrai gli elementi dal cuscino uno alla volta
+  for i in range(len(copy) - 1, 0, -1):
+    copy[i], copy[0] = copy[0], copy[i]
+    heapify(copy, 0, i)
 
-    for item in filesOwn:
-        for item2 in filesOwn2:
-            if (item.SHA == item2.SHA and item.path != item2.path):
-                filesUguali.append(DBUguali(item.path, item2.path, item.SHA, item2.SHA))
+  # restituisci la lista ordinata
+  return copy
 
-    if(filesUguali):
-        for obj in filesUguali:
-            print(obj.path1, obj.SHA1, obj.path2, obj.SHA2, sep = '\n')
-            print("")
-            now = datetime.datetime.now()
-            a = now.strftime("%Y%m%d%H%M%S")
-            f = open(p+"/DuplicateReport_"+a+".txt", "a")
-            f.write(obj.path1 +'\n'+ obj.path2 + '\n' + '\n')
-            f.close()
-            print("Report file saved in " + p + "DuplicateReport"+a+".txt")
-        exit()
+def SearchDuplicate(dir: str):
+   
+    # chiedi all'utente di inserire il percorso della cartella
+    if dir !="":
+        percorso = dir
     else:
-        print("No duplicated.")
-        exit()
+        percorso = input("Inserisci un percorso: ")
+    start_time = time.time()
+    print(f"Cerco duplicati in {dir}")
+    files = []
+    # ottiene la lista dei file nella cartella
+    files = os.listdir(percorso)
 
 
-def test():
-    if sys.argv[1:]:
-        try:
-            p = sys.argv[1]
-            fD(p)
-        except Exception as ex:
-            print(ex)
-    else:
-        p = input("Inserisci directory: ")
-        fD(p)
-
+    # ordina i file per hash usando l'algoritmo di ordinamento a cuscino
+    files = heap_sort_hashes(files)
+    
+    # inizializza una variabile per memorizzare l'hash precedente
+    previous_hash = None
+    previous_file = None
+    log = ""
+    # cicla attraverso ogni file nella cartella
+    for file in files:
+        # calcola l'hash del file
+        if(os.path.isfile(f"{percorso}/{file}")):
+            print(f"Analizzo {file}")
+            hash = hashlib.sha1(open(os.path.join(percorso, file), 'rb').read()).hexdigest()
+            # se l'hash è uguale all'hash precedente, il file è un duplicato
+            if hash == previous_hash:
+                print(f'Il file "{percorso}/{file}" è un duplicato di un altro file "{previous_file}" nella cartella')
+                log += f"[{file}]\n{previous_file}\n{percorso}/{file}\n\n"
+            # altrimenti, aggiorna l'hash precedente
+            else:
+                previous_hash = hash
+                previous_file = f"{percorso}/{file}"
+    elapsed_time = time.time() - start_time
+    d = datetime.now().strftime("%Y%m%d_%H:%M:%S")
+    f = open(f"strawberry_log_{d}.txt", "w")
+    f.write(log)
+    f.close()
+    print('Il tempo trascorso è: {:.2f} secondi'.format(elapsed_time))
+    input("Press Enter to continue...")
+    exit()
+    

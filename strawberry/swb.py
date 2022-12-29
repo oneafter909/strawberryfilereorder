@@ -6,7 +6,7 @@ from os.path import isfile, join
 import shutil
 from GUI import textColors
 from reorderutility import eR, aR, kwR, bdR, LbdR
-from identifier import fD
+from identifier import SearchDuplicate
 from GUI import homeScreen, helpPage
 from GUI import infoStrawberry
 version = infoStrawberry.version
@@ -24,7 +24,7 @@ def switchApp(i):
         else:
             LbdR("","","","")
     elif i==5:
-        fD("")
+        SearchDuplicate("")
     else:
         print("Command not recongnized")
 
@@ -70,7 +70,7 @@ def begin():
             if sys.argv[1] == "-eR" or sys.argv[1] == " --elementaryReorder" :
                 eR(sys.argv[2], False)
             elif sys.argv[1] == "-fD" or sys.argv[1] == " --findDuplicated":
-                fD(sys.argv[2])
+                SearchDuplicate(sys.argv[2])
  
     #When there's no args given.
 

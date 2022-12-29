@@ -3,8 +3,8 @@ import sys
 import shutil
 
 class infoStrawberry:
-    version = "5.0"
-    month_release = "January"
+    version = "6.0.0"
+    month_release = "December"
     year_release = "2022"
 
 class textColors:
