@@ -59,9 +59,9 @@ console = Console(theme=theme, soft_wrap=False)
 # ----------------------------- Info App -----------------------------
 @dataclass(frozen=True)
 class infoStrawberry:  # compat
-    version: str = "6.0.0"
-    month_release: str = "December"
-    year_release: str = "2022"
+    version: str = "7.0.0"
+    month_release: str = "October"
+    year_release: str = "2025"
 
 # ----------------------------- Back-compat ANSI (solo se servisse) -----------------------------
 class textColors:  # mantenuto per retrocompatibilita'

@@ -54,7 +54,7 @@ HASH_ALGO = "blake2b"
 HASH_DIGEST = 32
 MANIFEST_NAME = ".reorder_manifest.jsonl"
 
-# -------------------- Estensioni -> Categoria --------------------
+# -------------------- Estensioni -> Categoria (pulita) --------------------
 CATEGORIES: Dict[str, Tuple[str, Tuple[str, ...]]] = {
     # Documenti e testi
     "docs": ("Document Files", (
@@ -65,39 +65,53 @@ CATEGORIES: Dict[str, Tuple[str, Tuple[str, ...]]] = {
         ".odt", ".ods", ".odp", ".odg", ".odm", ".odb",
         ".pdf", ".djvu",
     )),
+
     # Dati/Serializzazioni
     "data": ("Data files", (
         ".csv", ".tsv", ".psv", ".json", ".jsonl", ".yaml", ".yml", ".xml", ".toml", ".ini", ".conf", ".cfg",
         ".parquet", ".arrow", ".feather", ".avro", ".orc", ".h5", ".hdf5", ".npy", ".npz", ".mat", ".sav", ".dta",
     )),
-    # Immagini raster
+
+    # Immagini raster (include TIFF e RAW)
     "photo": ("Image files", (
         ".png", ".jpeg", ".jpg", ".jfif", ".jpe", ".tif", ".tiff", ".bmp", ".gif", ".webp", ".apng", ".jxl",
         ".heic", ".heif", ".avif",
         ".cr2", ".cr3", ".nef", ".arw", ".orf", ".raf", ".sr2", ".rw2", ".pef", ".dng", ".raw",
         ".psd", ".xcf",
     )),
-    # Immagini vettoriali e design
-    "vector": ("Vector & Design files", (
-        ".svg", ".ai", ".eps", ".pdf", ".cdr", ".indd", ".idml", ".afdesign", ".afphoto", ".sketch", ".fig", ".xd",
-        ".icns", ".cur",
+
+    # Immagini vettoriali
+    "vector": ("Vector files", (
+        ".svg", ".ai", ".eps", ".cdr", ".indd", ".idml",
     )),
+
+    # Design (suite UI/graphic non vettoriale puro)
+    "design": ("Design files", (
+        ".afdesign", ".afphoto", ".sketch", ".xd", ".fig",
+    )),
+
     # Audio
     "audio": ("Audio files", (
-        ".mp3", ".m4a", ".aac", ".ogg", ".oga", ".opus", ".flac", ".alac", ".wav", ".aif", ".aiff", ".ape", ".mka", ".mid", ".midi", ".kar",
+        ".mp3", ".m4a", ".aac", ".ogg", ".oga", ".opus", ".flac", ".alac", ".wav", ".aif", ".aiff", ".ape", ".mka",
+        ".mid", ".midi", ".kar",
     )),
+
     # Video
     "video": ("Video files", (
-        ".mp4", ".m4v", ".mov", ".webm", ".ogv", ".avi", ".mkv", ".wmv", ".flv", ".f4v", ".mpeg", ".mpg", ".m2ts", ".ts", ".3gp", ".3g2", ".vob", ".rm", ".rmvb",
+        ".mp4", ".m4v", ".mov", ".webm", ".ogv", ".avi", ".mkv", ".wmv", ".flv", ".f4v", ".mpeg", ".mpg",
+        ".m2ts", ".ts", ".3gp", ".3g2", ".vob", ".rm", ".rmvb",
     )),
+
     # Sottotitoli
     "subtitles": ("Subtitle files", (
         ".srt", ".ass", ".ssa", ".vtt", ".sub", ".idx",
     )),
+
     # Font
     "font": ("Font files", (
         ".ttf", ".otf", ".woff", ".woff2", ".eot", ".suit", ".ttc",
     )),
+
     # Sorgenti / codice
     "source": ("Source Code files", (
         ".c", ".h", ".cpp", ".hpp", ".cc", ".hh", ".m", ".mm",
@@ -109,70 +123,93 @@ CATEGORIES: Dict[str, Tuple[str, Tuple[str, ...]]] = {
         ".sln", ".csproj", ".vbproj", ".fsproj", ".vcxproj", ".cmake", ".gradle", ".pom", ".iml",
         ".dockerfile", ".make", ".mk",
     )),
+
     # Script/Batch/Executable
     "executables": ("Executable files", (
         ".exe", ".com", ".bat", ".cmd", ".msi", ".msix", ".msixbundle", ".appx",
         ".apk", ".aab", ".ipa", ".xap",
     )),
+
     # Librerie
     "libraries": ("Library files", (
         ".dll", ".so", ".dylib", ".lib", ".a",
     )),
+
     # Archivi/compressi
     "compressed": ("Compressed files", (
-        ".zip", ".rar", ".7z", ".tar", ".gz", ".tgz", ".bz", ".bz2", ".tbz", ".tbz2", ".xz", ".txz", ".zst", ".lz", ".lz4", ".cab", ".cpio", ".arj", ".lzh",
+        ".zip", ".rar", ".7z", ".tar", ".gz", ".tgz", ".bz", ".bz2", ".tbz", ".tbz2",
+        ".xz", ".txz", ".zst", ".lz", ".lz4", ".cab", ".cpio", ".arj", ".lzh",
     )),
+
     # Pacchetti/installer
     "packages": ("Packages", (
         ".deb", ".rpm", ".snap", ".pkg", ".dnf", ".appimage", ".whl", ".egg", ".war", ".ear", ".msu",
     )),
-    # Icone
+
+    # Icone (solo qui, niente duplicati in vector)
     "icon": ("Icon files", (
         ".ico", ".icns", ".cur",
     )),
+
     # Jar
     "jar": ("Jar files", (".jar",)),
+
     # Immagini disco / virtualizzazione
     "diskimage": ("Disk Image files", (
         ".iso", ".img", ".bin", ".cue", ".dmg", ".vmdk", ".vdi", ".vhd", ".vhdx", ".qcow", ".qcow2", ".ovf", ".ova",
     )),
+
     # 3D/CAD
-    "3d": ("3D model files", (
-        ".blend", ".obj", ".fbx", ".3ds", ".stl", ".ply", ".dae", ".glb", ".gltf", ".step", ".stp", ".iges", ".igs", ".skp", ".sldprt", ".sldasm", ".dxf", ".dwg",
+    "three_d": ("3D model files", (
+        ".blend", ".obj", ".fbx", ".3ds", ".stl", ".ply", ".dae", ".glb", ".gltf",
+        ".step", ".stp", ".iges", ".igs", ".skp", ".sldprt", ".sldasm", ".dxf", ".dwg",
     )),
-    # GIS/Geo
+
+    # GIS/Geo (senza .tif/.tiff per evitare collisione con photo)
     "gis": ("GIS files", (
-        ".shp", ".shx", ".dbf", ".prj", ".geojson", ".topojson", ".kml", ".kmz", ".gpx", ".mbtiles", ".tif", ".tiff",
+        ".shp", ".shx", ".dbf", ".prj", ".geojson", ".topojson", ".kml", ".kmz", ".gpx", ".mbtiles",
     )),
+
     # E-book
     "ebooks": ("Ebook files", (
         ".epub", ".mobi", ".azw", ".azw3", ".fb2",
     )),
+
     # Email/archivi posta
     "mail": ("Email files", (
         ".eml", ".msg", ".pst", ".ost", ".mbox",
     )),
+
     # Database
     "database": ("Database files", (
         ".sql", ".sqlite", ".db", ".db3", ".sqlite3", ".mdb", ".accdb", ".mdf", ".ldf",
     )),
+
     # Notebook / report
     "notebooks": ("Notebook files", (
         ".ipynb", ".rmd", ".qmd",
     )),
+
     # Certificati/chiavi
     "certs": ("Certificates & Keys", (
         ".pem", ".crt", ".cer", ".der", ".p7b", ".pfx", ".p12", ".key", ".jks",
     )),
+
     # Torrent/log
     "torrent": ("Torrents", (".torrent",)),
     "logs": ("Logs", (".log", ".har")),
 }
 
+# Costruzione mapping estensione -> cartella con deduplicazione
 EXT_TO_CATEGORY: Dict[str, str] = {}
+_seen: set = set()
 for _, (folder, exts) in CATEGORIES.items():
     for ext in exts:
-        EXT_TO_CATEGORY[ext.lower()] = folder
+        low = ext.lower()
+        if low in _seen:
+            continue  # evita collisioni tra categorie
+        EXT_TO_CATEGORY[low] = folder
+        _seen.add(low)
 
 # ------------------------ Prompt OS-wide ------------------------
 def _windows_drives() -> List[str]:
@@ -226,6 +263,12 @@ def ask_directory(label: str, default: Optional[str] = None) -> str:
         ans = ans or default
         return str(Path(os.path.expanduser(ans)))
     return Prompt.ask(label, default=default)
+
+from rich.markup import escape as rich_escape
+
+def esc(x):  # comodo per le stampe
+    return rich_escape(str(x))
+
 
 # ------------------------ Utilità core ------------------------
 _manifest_lock = threading.Lock()
@@ -490,9 +533,11 @@ def aR(dy, e, n):
 # ------------------------------------------------------ kwR ------------------------------------------------------
 def kwR(dy, kw, n):
     _banner("Reorder by keyword")
+
+    # input
     if dy == "":
         dy = ask_directory("Enter a directory", str(Path.cwd()))
-        console.print(f"SELECTED DIRECTORY: [{dy}]")
+        console.print(f"SELECTED DIRECTORY: [cyan]{esc(dy)}[/cyan]")
     base = Path(dy).expanduser().resolve()
 
     if kw == "":
@@ -503,6 +548,7 @@ def kwR(dy, kw, n):
     dst_dir = base / n
     manifest_path = base / MANIFEST_NAME
 
+    # scan (non ricorsivo, come prima)
     pairs: List[Tuple[Path, Path]] = []
     with os.scandir(base) as it:
         for entry in it:
@@ -513,7 +559,12 @@ def kwR(dy, kw, n):
         console.print("[yellow]No files found[/yellow]")
         return
 
-    moved, failed = _execute_balanced(pairs, manifest_path, title_prefix=f"Keyword <{kw}>")
+    # titolo dei task con keyword escapata (evita markup error)
+    moved, failed = _execute_balanced(
+        pairs,
+        manifest_path,
+        title_prefix=f"Keyword <{esc(kw)}>"
+    )
     console.print(_summary_table(moved, failed))
 
 # ------------------------------------------------------ LbdR (Linux) ------------------------------------------------------
