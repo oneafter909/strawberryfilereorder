@@ -55,6 +55,7 @@ HASH_DIGEST = 32
 MANIFEST_NAME = ".reorder_manifest.jsonl"
 
 # -------------------- Estensioni -> Categoria (pulita) --------------------
+# -------------------- Estensioni -> Categoria (pulita) --------------------
 CATEGORIES: Dict[str, Tuple[str, Tuple[str, ...]]] = {
     # Documenti e testi
     "docs": ("Document Files", (
@@ -72,7 +73,7 @@ CATEGORIES: Dict[str, Tuple[str, Tuple[str, ...]]] = {
         ".parquet", ".arrow", ".feather", ".avro", ".orc", ".h5", ".hdf5", ".npy", ".npz", ".mat", ".sav", ".dta",
     )),
 
-    # Immagini raster (include TIFF e RAW)
+    # Immagini raster (TIFF/RAW inclusi)
     "photo": ("Image files", (
         ".png", ".jpeg", ".jpg", ".jfif", ".jpe", ".tif", ".tiff", ".bmp", ".gif", ".webp", ".apng", ".jxl",
         ".heic", ".heif", ".avif",
@@ -85,9 +86,9 @@ CATEGORIES: Dict[str, Tuple[str, Tuple[str, ...]]] = {
         ".svg", ".ai", ".eps", ".cdr", ".indd", ".idml",
     )),
 
-    # Design (suite UI/graphic non vettoriale puro)
+    # Design (suite UI/graphic)
     "design": ("Design files", (
-        ".afdesign", ".afphoto", ".sketch", ".xd", ".fig",
+        ".afdesign", ".afphoto", ".sketch", ".xd", ".fig", ".excalidraw", ".psb", ".ait", ".indb", ".indt", ".qxp", ".qxd", ".svgz"
     )),
 
     # Audio
@@ -146,7 +147,7 @@ CATEGORIES: Dict[str, Tuple[str, Tuple[str, ...]]] = {
         ".deb", ".rpm", ".snap", ".pkg", ".dnf", ".appimage", ".whl", ".egg", ".war", ".ear", ".msu",
     )),
 
-    # Icone (solo qui, niente duplicati in vector)
+    # Icone
     "icon": ("Icon files", (
         ".ico", ".icns", ".cur",
     )),
@@ -207,9 +208,10 @@ for _, (folder, exts) in CATEGORIES.items():
     for ext in exts:
         low = ext.lower()
         if low in _seen:
-            continue  # evita collisioni tra categorie
+            continue
         EXT_TO_CATEGORY[low] = folder
         _seen.add(low)
+
 
 # ------------------------ Prompt OS-wide ------------------------
 def _windows_drives() -> List[str]:
@@ -220,14 +222,22 @@ def _windows_drives() -> List[str]:
             for l in string.ascii_uppercase
             if os.path.exists(f"{l}:\\")]
 
-class DirValidator(Validator):
-    def validate(self, document):
-        t = document.text.strip()
-        if not t:
+# Validator per prompt_toolkit: se prompt_toolkit non è disponibile definiamo
+# un fallback minimale che non solleva errori (verrà usato solo se HAVE_PT==False)
+if HAVE_PT:
+    class DirValidator(Validator):
+        def validate(self, document):
+            t = document.text.strip()
+            if not t:
+                return
+            p = Path(os.path.expanduser(t))
+            if not (p.exists() and p.is_dir()):
+                raise ValidationError(message="Directory non valida", cursor_position=len(document.text))
+else:
+    class DirValidator:
+        def validate(self, document):
+            # Fallback no-op validator when prompt_toolkit non è installato
             return
-        p = Path(os.path.expanduser(t))
-        if not (p.exists() and p.is_dir()):
-            raise ValidationError(message="Directory non valida", cursor_position=len(document.text))
 
 if HAVE_PT:
     class OSPathCompleter(Completer):
