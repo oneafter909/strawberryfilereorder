@@ -1,1 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.egg
+*.log
+*.sqlite3
+
+# Virtualenv
+.venv/
+venv/
+ENV/
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test/coverage
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+
+# Build
+build/
+dist/
+*.spec
+
+# App/CLI
 swb
+cli
+
+# Media/output
+media/
+
+# IDE
+.idea/
+*.iml
+
+# Misc
+*.bak
+*.tmp
+
+# Ignore secrets/config
+.env
+.env.*
+
+# Strawberry specific
+VERSIONS
